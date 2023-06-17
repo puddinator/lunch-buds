@@ -6,6 +6,7 @@ import { GuidesScreen } from "../screens/AppStack/archived/GuidesScreen";
 import { ProfileScreen } from "../screens/AppStack/ProfileScreen";
 import { PlanScreen } from "../screens/AppStack/archived/PlanScreen";
 import { MatchScreen } from "../screens/AppStack/MatchScreen";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const App = createMaterialBottomTabNavigator();
 
@@ -32,20 +33,6 @@ export const NavBarRoutes = () => {
           ),
         }}
       />
-      {/* <App.Screen
-        name="Plan"
-        component={PlanScreen}
-        options={{
-          tabBarLabel: "Plan",
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons
-              name="calendar-multiple-check"
-              color={color}
-              size={26}
-            />
-          ),
-        }}
-      /> */}
       <App.Screen
         name="Home"
         component={HomeScreen}
