@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { Text, View } from "react-native";
 import { AuthContext } from "../../contexts/AuthContext";
 
-export const MeScreen = () => {
+export const ProfileScreen = () => {
   const { signOut } = useContext(AuthContext);
 
   return (

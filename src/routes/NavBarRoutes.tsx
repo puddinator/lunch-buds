@@ -1,11 +1,11 @@
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { FavouritesScreen } from "../screens/AppStack/FavouritesScreen";
-import { GuidesScreen } from "../screens/AppStack/GuidesScreen";
-import { MeScreen } from "../screens/AppStack/MeScreen";
-import { PlanScreen } from "../screens/AppStack/PlanScreen";
-import { SearchScreen } from "../screens/AppStack/SearchScreen";
+import { HomeScreen } from "../screens/AppStack/HomeScreen";
+import { GuidesScreen } from "../screens/AppStack/archived/GuidesScreen";
+import { ProfileScreen } from "../screens/AppStack/ProfileScreen";
+import { PlanScreen } from "../screens/AppStack/archived/PlanScreen";
+import { MatchScreen } from "../screens/AppStack/MatchScreen";
 
 const App = createMaterialBottomTabNavigator();
 
@@ -19,7 +19,7 @@ export const NavBarRoutes = () => {
       {/* For the 4 different navigation tabs */}
       <App.Screen
         name="Search"
-        component={SearchScreen}
+        component={MatchScreen}
         options={{
           tabBarLabel: "Search",
           tabBarIcon: ({ color }) => (
@@ -47,7 +47,7 @@ export const NavBarRoutes = () => {
       /> */}
       <App.Screen
         name="Favourites"
-        component={FavouritesScreen}
+        component={HomeScreen}
         options={{
           tabBarLabel: "Favourites",
           tabBarIcon: ({ color }) => (
@@ -57,7 +57,7 @@ export const NavBarRoutes = () => {
       />
       <App.Screen
         name="Me"
-        component={MeScreen}
+        component={ProfileScreen}
         options={{
           tabBarLabel: "Me",
           tabBarIcon: ({ color }) => (

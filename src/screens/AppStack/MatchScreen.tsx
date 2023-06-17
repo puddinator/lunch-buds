@@ -5,7 +5,7 @@ import { Dimensions, View } from "react-native";
 
 const handlePress = () => {};
 
-export const SearchScreen = () => {
+export const MatchScreen = () => {
   const WINDOW_HEIGHT = Dimensions.get("window").width;
 
   const [searchTerm, setSearchTerm] = useState("");
