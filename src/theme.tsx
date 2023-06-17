@@ -43,34 +43,40 @@ export const theme = extendTheme({
     },
   },
   fontConfig: {
-    Lexend: {
+    minecraft: {
       100: {
-        normal: "minecraft",
+        normal: "vcr",
       },
-      // 200: {
-      //   normal: "Lexend_200ExtraLight",
-      // },
-      // 300: {
-      //   normal: "Lexend_300Light",
-      // },
-      // 400: {
-      //   normal: "Lexend_400Regular",
-      // },
-      // 500: {
-      //   normal: "Lexend_500Medium",
-      // },
-      // 600: {
-      //   normal: "Lexend_600SemiBold",
-      // },
-      // 700: {
-      //   normal: "Lexend_700Bold",
-      // },
-      // 800: {
-      //   normal: "Lexend_800ExtraBold",
-      // },
-      // 900: {
-      //   normal: "Lexend_900Black",
-      // },
+      200: {
+        normal: "vcr",
+      },
+      300: {
+        normal: "vcr",
+      },
+      400: {
+        normal: "minecraft",
+        italics: "minecraft-italic",
+      },
+      500: {
+        normal: "minecraft",
+        italics: "minecraft-italic",
+      },
+      600: {
+        normal: "minecraft",
+        italics: "minecraft-italic",
+      },
+      700: {
+        normal: "minecraft-bold",
+        italics: "minecraft-bold-italic",
+      },
+      800: {
+        normal: "minecraft-bold",
+        italics: "minecraft-bold-italic",
+      },
+      900: {
+        normal: "minecraft-bold",
+        italics: "minecraft-bold-italic",
+      },
     },
   },
   fonts: {
