@@ -6,6 +6,7 @@ import { GuidesScreen } from "../screens/AppStack/GuidesScreen";
 import { MeScreen } from "../screens/AppStack/MeScreen";
 import { PlanScreen } from "../screens/AppStack/PlanScreen";
 import { SearchScreen } from "../screens/AppStack/SearchScreen";
+
 const App = createMaterialBottomTabNavigator();
 
 export const NavBarRoutes = () => {

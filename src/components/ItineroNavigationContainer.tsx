@@ -25,7 +25,8 @@ export const ItineroNavigationContainer = () => {
               headerShown: false,
             }}
           >
-            {isLoggedIn ? (
+            {/* {isLoggedIn ? ( */}
+            {true ? (
               <Stack.Screen name="App" component={NavBarRoutes} />
             ) : (
               <Stack.Screen name="Auth" component={AuthRoutes} />
