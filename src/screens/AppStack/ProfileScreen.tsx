@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     width: "80%",
   },
   ageRow: {
-    marginBottom: 20, //gap between hp row and interests row
+    marginBottom: 30, //gap between hp row and interests row
   },
   profileLabel: {
     textAlign: "right",
