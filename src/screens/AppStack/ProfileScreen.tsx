@@ -1,12 +1,6 @@
-import { Button } from "native-base";
+import { Text } from "native-base";
 import { useContext } from "react";
-import {
-  Text,
-  View,
-  SafeAreaView,
-  StyleSheet,
-  TouchableOpacity,
-} from "react-native";
+import { View, SafeAreaView, StyleSheet, TouchableOpacity } from "react-native";
 import { AuthContext } from "../../contexts/AuthContext";
 
 export const ProfileScreen = () => {
@@ -33,7 +27,7 @@ export const ProfileScreen = () => {
 
         <View style={styles.row}>
           <Text style={styles.profileLabel}> Interest:</Text>
-          <Text style={styles.profileValue}> "insert buttons here" </Text>
+          <Text style={styles.interests}>insert buttons here</Text>
         </View>
       </View>
     </SafeAreaView>
@@ -68,7 +62,6 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
     justifyContent: "center",
-    alignItems: "center",
     marginBottom: 10,
     width: "80%",
   },
@@ -78,7 +71,7 @@ const styles = StyleSheet.create({
   profileLabel: {
     textAlign: "right",
     width: "50%",
-    paddingRight: 0,
+    paddingRight: 10,
     fontSize: 20,
   },
   profileValue: {
@@ -86,5 +79,11 @@ const styles = StyleSheet.create({
     width: "50%",
     paddingLeft: 10,
     fontSize: 20,
+  },
+  interests: {
+    textAlign: "left",
+    width: "50%",
+    paddingLeft: 10,
+    fontSize: 10,
   },
 });
