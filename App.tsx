@@ -3,6 +3,7 @@ import { NativeBaseProvider } from "native-base";
 import { useCallback } from "react";
 import { View } from "react-native";
 import Toast from "react-native-toast-message";
+import { StatusBar } from "expo-status-bar";
 
 import { ItineroNavigationContainer } from "./src/components/ItineroNavigationContainer";
 import { AuthProvider } from "./src/contexts/AuthProvider";
@@ -31,6 +32,7 @@ export default function App() {
           <ItineroNavigationContainer />
           <Toast />
         </AuthProvider>
+        <StatusBar backgroundColor={"transparent"} translucent />
       </View>
       {/* </SafeAreaProvider> */}
     </NativeBaseProvider>
