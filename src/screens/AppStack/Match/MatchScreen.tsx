@@ -21,13 +21,12 @@ import {
 } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 
-
 //Search Button--------------------------------------------------------------------------------------
 const SearchButton = () => {
   return (
     <TouchableOpacity style={styles.SearchbuttonContainer}>
       <Image
-        source={require("../../../assets/images/ButtonSearch.png")}
+        source={require("../../../../assets/images/ButtonSearch.png")}
         style={styles.searchButtonimage}
       />
     </TouchableOpacity>
@@ -106,9 +105,8 @@ export const MatchScreen = () => {
       <Text style={styles.subtitleText}>Someone who is interested in...</Text>
 
       <InterestForm />
-      
-      <SearchButton />
 
+      <SearchButton />
     </SafeAreaView>
 
     // <>

@@ -17,7 +17,7 @@ export const ProfileScreen = () => {
 
       <View style={styles.profileContainer}>
         <Image
-          source={require("../../../assets/images/ProfileIcon.png")}
+          source={require("../../../../assets/images/ProfileIcon.png")}
           style={styles.profileIcon}
         />
 

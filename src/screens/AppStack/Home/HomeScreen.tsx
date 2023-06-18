@@ -1,30 +1,43 @@
 import React from "react";
 import { Text, Image } from "native-base";
 import { View, TouchableOpacity, StyleSheet, SafeAreaView } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { HomeStackNavigationProps } from "../../../routes/HomeRoutes";
 
 export const HomeScreen = () => {
+  const navigation = useNavigation<HomeStackNavigationProps>();
+
   return (
     <SafeAreaView style={styles.container}>
       <Image
-        source={require("../../../assets/images/LunchBudsLogo.png")}
+        source={require("../../../../assets/images/LunchBudsLogo.png")}
         style={styles.logo}
       />
       <Image
-        source={require("../../../assets/images/Garden.png")}
+        source={require("../../../../assets/images/Garden.png")}
         style={styles.maingarden}
       />
-      <ShopButton />
+      <ShopButton navigation={navigation} />
       <WaterButton />
     </SafeAreaView>
   );
 };
 
+interface IShopButton {
+  navigation: HomeStackNavigationProps;
+}
+
 //Shop Button--------------------------------------------------------------------------------------
-const ShopButton = () => {
+const ShopButton = ({ navigation }: IShopButton) => {
   return (
-    <TouchableOpacity style={styles.LeftbuttonContainer}>
+    <TouchableOpacity
+      style={styles.LeftbuttonContainer}
+      onPress={() => {
+        navigation.navigate("Shop");
+      }}
+    >
       <Image
-        source={require("../../../assets/images/Apple.png")}
+        source={require("../../../../assets/images/Apple.png")}
         style={styles.image}
       />
       <Text style={styles.buttonText}>Shop</Text>
@@ -36,7 +49,7 @@ const WaterButton = () => {
   return (
     <TouchableOpacity style={styles.RightbuttonContainer}>
       <Image
-        source={require("../../../assets/images/WateringCan.png")}
+        source={require("../../../../assets/images/WateringCan.png")}
         style={styles.waterIcon}
       />
       <Text style={styles.buttonText}>Water</Text>

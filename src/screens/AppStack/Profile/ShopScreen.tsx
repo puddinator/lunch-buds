@@ -10,15 +10,7 @@ export const ShopScreen = () => {
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
       {/*  Title and back button   ----------------------------------------------- */}
-      <View style={styles.titleRow}>
-        <TouchableOpacity style={styles.backButton} onPress={signOut}>
-          <Image
-            source={require("../../../../assets/images/BackButton.png")}
-            style={styles.backIcon}
-          />
-        </TouchableOpacity>
-        <Text style={styles.titleText}> Shop </Text>
-      </View>
+      <BackButton />
 
       {/* Count of apples -------------------------------------------------------- */}
 
@@ -65,28 +57,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     backgroundColor: "#FFFBEC",
-  },
-  titleRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    paddingTop: 30,
-    paddingBottom: 0,
-  },
-  backButton: {
-    position: "absolute",
-    left: 20,
-    padding: 10,
-  },
-  backIcon: {
-    height: 45,
-    width: 40,
-  },
-  titleText: {
-    fontSize: 40,
-    padding: 20,
-    paddingTop: 20,
-    textAlign: "center",
   },
 
   appleRow: {

@@ -1,13 +1,15 @@
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import { Image } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { HomeScreen } from "../screens/AppStack/HomeScreen";
+import { HomeScreen } from "../screens/AppStack/Home/HomeScreen";
 import { GuidesScreen } from "../screens/AppStack/archived/GuidesScreen";
 import { ProfileScreen } from "../screens/AppStack/Profile/ProfileScreen";
 import { PlanScreen } from "../screens/AppStack/archived/PlanScreen";
-import { MatchScreen } from "../screens/AppStack/MatchScreen";
+import { MatchScreen as MatchRoutes } from "../screens/AppStack/Match/MatchScreen";
 import { ShopScreen } from "../screens/AppStack/Profile/ShopScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { ProfileRoutes } from "./ProfileRoutes";
+import { HomeRoutes } from "./HomeRoutes";
 
 const App = createMaterialBottomTabNavigator();
 
@@ -25,7 +27,7 @@ export const NavBarRoutes = () => {
       {/* For the 4 different navigation tabs */}
       <App.Screen
         name="Match"
-        component={MatchScreen}
+        component={MatchRoutes}
         options={{
           tabBarLabel: "Match",
           tabBarIcon: ({ color }) => (
@@ -35,7 +37,7 @@ export const NavBarRoutes = () => {
       />
       <App.Screen
         name="Home"
-        component={HomeScreen}
+        component={HomeRoutes}
         options={{
           tabBarLabel: "Home",
           tabBarIcon: ({ color }) => (
@@ -45,7 +47,7 @@ export const NavBarRoutes = () => {
       />
       <App.Screen
         name="Profile"
-        component={ShopScreen}
+        component={ProfileRoutes}
         options={{
           tabBarLabel: "Profile",
           tabBarIcon: ({ color }) => (
