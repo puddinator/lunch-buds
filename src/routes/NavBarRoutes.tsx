@@ -3,10 +3,10 @@ import { Image } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { HomeScreen } from "../screens/AppStack/HomeScreen";
 import { GuidesScreen } from "../screens/AppStack/archived/GuidesScreen";
-import { ProfileScreen } from "../screens/AppStack/ProfileScreen";
+import { ProfileScreen } from "../screens/AppStack/Profile/ProfileScreen";
 import { PlanScreen } from "../screens/AppStack/archived/PlanScreen";
 import { MatchScreen } from "../screens/AppStack/MatchScreen";
-import { ShopScreen } from "../screens/AppStack/ShopScreen";
+import { ShopScreen } from "../screens/AppStack/Profile/ShopScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const App = createMaterialBottomTabNavigator();

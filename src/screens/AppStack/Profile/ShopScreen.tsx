@@ -1,8 +1,8 @@
 import { Text, Image, HStack, VStack } from "native-base";
 import { useContext } from "react";
 import { View, SafeAreaView, StyleSheet, TouchableOpacity } from "react-native";
-import { AuthContext } from "../../contexts/AuthContext";
-import { BackButton } from "../../components/BackButton";
+import { AuthContext } from "../../../contexts/AuthContext";
+import { BackButton } from "../../../components/BackButton";
 
 export const ShopScreen = () => {
   const { signOut } = useContext(AuthContext);
@@ -41,7 +41,6 @@ export const ShopScreen = () => {
             style={styles.ticketIcon}
           />
         </TouchableOpacity>
-        
 
         <TouchableOpacity onPress={signOut}>
           <Image
@@ -49,7 +48,6 @@ export const ShopScreen = () => {
             style={styles.ticketIcon}
           />
         </TouchableOpacity>
-        
 
         <TouchableOpacity onPress={signOut}>
           <Image
@@ -57,7 +55,6 @@ export const ShopScreen = () => {
             style={styles.ticketIcon}
           />
         </TouchableOpacity>
-        
       </View>
     </SafeAreaView>
   );
@@ -130,6 +127,4 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginBottom: 15,
   },
-
-
 });

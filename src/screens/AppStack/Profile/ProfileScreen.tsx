@@ -1,7 +1,7 @@
 import { Text, Image } from "native-base";
 import { useContext } from "react";
 import { View, SafeAreaView, StyleSheet, TouchableOpacity } from "react-native";
-import { AuthContext } from "../../contexts/AuthContext";
+import { AuthContext } from "../../../contexts/AuthContext";
 
 export const ProfileScreen = () => {
   const { signOut } = useContext(AuthContext);
