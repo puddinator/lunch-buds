@@ -1,4 +1,4 @@
-import { Text } from "native-base";
+import { Text, Image } from "native-base";
 import { useContext } from "react";
 import { View, SafeAreaView, StyleSheet, TouchableOpacity } from "react-native";
 import { AuthContext } from "../../contexts/AuthContext";
@@ -16,9 +16,14 @@ export const ProfileScreen = () => {
       </View>
 
       <View style={styles.profileContainer}>
+        <Image
+          source={require("../../../assets/images/ProfileIcon.png")}
+          style={styles.profileIcon}
+        />
+
         <View style={styles.row}>
           <Text style={styles.profileLabel}> Name:</Text>
-          <Text style={styles.profileValue}> Lai Peng Yeo </Text>
+          <Text style={styles.profileValue}> Tan Xiao Ming </Text>
         </View>
 
         <View style={[styles.row, styles.ageRow]}>
@@ -57,6 +62,16 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 10,
   },
+  // profileIconContainer: {
+  // backgroundColor: "#D9D9D9",
+  // },
+  profileIcon: {
+    width: 120,
+    height: 120,
+    alignSelf: "center",
+    justifyContent: "center",
+    marginBottom: 60,
+  },
   profileContainer: {
     flex: 1,
     justifyContent: "center",
@@ -91,5 +106,6 @@ const styles = StyleSheet.create({
     width: "50%",
     paddingLeft: 10,
     fontSize: 10,
+    marginBottom: 180,
   },
 });
