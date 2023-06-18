@@ -21,7 +21,18 @@ import {
 } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 
-const next = require("../../../assets/images/next-button.png");
+
+//Search Button--------------------------------------------------------------------------------------
+const SearchButton = () => {
+  return (
+    <TouchableOpacity style={styles.SearchbuttonContainer}>
+      <Image
+        source={require("../../../assets/images/ButtonSearch.png")}
+        style={styles.searchButtonimage}
+      />
+    </TouchableOpacity>
+  );
+};
 
 const InterestForm = () => {
   const [groupValues, setGroupValues] = useState([]);
@@ -95,16 +106,9 @@ export const MatchScreen = () => {
       <Text style={styles.subtitleText}>Someone who is interested in...</Text>
 
       <InterestForm />
+      
+      <SearchButton />
 
-      <TouchableOpacity
-        style={styles.searchButton}
-        onPress={() => handlePress()}
-      >
-        <HStack>
-          <Text style={styles.searchText}>Search</Text>
-          <Image source={next} alt="itinero logo" style={styles.arrowIcon} />
-        </HStack>
-      </TouchableOpacity>
     </SafeAreaView>
 
     // <>
@@ -152,22 +156,14 @@ const styles = StyleSheet.create({
     padding: 10,
     marginTop: 40,
   },
-  searchButton: {
-    padding: 10,
-    marginRight: 10,
-    marginTop: 10,
-    marginBottom: 80,
+  searchButtonimage: {
+    width: 135,
+    height: 40,
   },
-  searchText: {
-    padding: 10,
-    marginLeft: 20,
+  SearchbuttonContainer: {
+    position: "absolute",
+    bottom: "20%",
     justifyContent: "center",
-    fontSize: 20,
-  },
-  arrowIcon: {
-    padding: 10,
-    justifyContent: "center",
-    height: 52,
-    width: 65,
+    alignItems: "center",
   },
 });
