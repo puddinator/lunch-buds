@@ -33,7 +33,7 @@ const WaterButton = () => {
     <TouchableOpacity style={styles.RightbuttonContainer}>
       <Image
         source={require("../../../assets/images/WateringCan.png")}
-        style={styles.image}
+        style={styles.waterIcon}
       />
       <Text style={styles.buttonText}>Water</Text>
     </TouchableOpacity>
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   LeftbuttonContainer: {
     // SHOP BUTTON
     position: "absolute",
-    left: "5%",
+    left: "8%",
     bottom: "10%",
     justifyContent: "center",
     alignItems: "center",
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   RightbuttonContainer: {
     // WATER BUTTON
     position: "absolute",
-    right: "5%",
+    right: "8%",
     bottom: "10%",
     justifyContent: "center",
     alignItems: "center",
@@ -65,6 +65,11 @@ const styles = StyleSheet.create({
   image: {
     width: 45,
     height: 35,
+  },
+  waterIcon: {
+    width: 45,
+    height: 35,
+    paddingRight: 10,
   },
   buttonText: {
     marginTop: 5,
