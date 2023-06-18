@@ -9,7 +9,7 @@ export const ShopScreen = () => {
 
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
-      {/*  Title and back button   ------------------------------------------ */}
+      {/*  Title and back button   ----------------------------------------------- */}
       <View style={styles.titleRow}>
         <TouchableOpacity style={styles.backButton} onPress={signOut}>
           <Image
@@ -20,7 +20,7 @@ export const ShopScreen = () => {
         <Text style={styles.titleText}> Shop </Text>
       </View>
 
-      {/* Count of apples --------------------------------------------------- */}
+      {/* Count of apples -------------------------------------------------------- */}
 
       <View style={styles.appleRow}>
         <Image
@@ -33,7 +33,7 @@ export const ShopScreen = () => {
         </VStack>
       </View>
 
-      {/* Tickets, three different rarities ----------------------------------------------- */}
+      {/* Tickets, three different rarities -------------------------------------- */}
       <View style={styles.ticketContainer}>
         <TouchableOpacity onPress={signOut}>
           <Image
@@ -41,7 +41,6 @@ export const ShopScreen = () => {
             style={styles.ticketIcon}
           />
         </TouchableOpacity>
-        
 
         <TouchableOpacity onPress={signOut}>
           <Image
@@ -49,7 +48,6 @@ export const ShopScreen = () => {
             style={styles.ticketIcon}
           />
         </TouchableOpacity>
-        
 
         <TouchableOpacity onPress={signOut}>
           <Image
@@ -57,7 +55,6 @@ export const ShopScreen = () => {
             style={styles.ticketIcon}
           />
         </TouchableOpacity>
-        
       </View>
     </SafeAreaView>
   );
@@ -96,7 +93,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    paddingBottom: 50,
+    paddingBottom: 70,
   },
 
   appleIcon: {
@@ -130,6 +127,4 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginBottom: 15,
   },
-
-
 });
