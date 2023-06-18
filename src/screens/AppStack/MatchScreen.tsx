@@ -16,6 +16,8 @@ import {
   Platform,
   TouchableOpacity,
   View,
+  SafeAreaView,
+  StyleSheet,
 } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 
@@ -69,12 +71,16 @@ export const MatchScreen = () => {
     showMode("time");
   };
 
+  // Actual Screen here:
+
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Find your LunchBuds!</Text>
+    <SafeAreaView style={styles.safeAreaContainer}>
+      <Text style={styles.titleText}>Find your LunchBuds!</Text>
       <View>
-        <Button onPress={showDatepicker} title="Show date picker!" />
-        <Button onPress={showTimepicker} title="Show time picker!" />
+        <HStack>
+          <Button onPress={showDatepicker} title="Select date" />
+          <Button onPress={showTimepicker} title="Select time" />
+        </HStack>
         <Text>selected: {date.toLocaleString()}</Text>
         {show && (
           <DateTimePicker
@@ -86,16 +92,21 @@ export const MatchScreen = () => {
           />
         )}
       </View>
-      <Text>Someone who is interested in...</Text>
+      <Text style={styles.subtitleText}>Someone who is interested in...</Text>
+
       <InterestForm />
 
-      <TouchableOpacity onPress={() => handlePress()}>
+      <TouchableOpacity
+        style={styles.searchButton}
+        onPress={() => handlePress()}
+      >
         <HStack>
-          <Text>Search</Text>
-          <Image source={next} alt="itinero logo" size="xs" />
+          <Text style={styles.searchText}>Search</Text>
+          <Image source={next} alt="itinero logo" style={styles.arrowIcon} />
         </HStack>
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
+
     // <>
     //   <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
     //     <Stack space={10}>
@@ -123,3 +134,40 @@ export const MatchScreen = () => {
     // </>
   );
 };
+
+const styles = StyleSheet.create({
+  safeAreaContainer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#FFFBEC",
+  },
+  titleText: {
+    fontSize: 30,
+    padding: 10,
+    marginBottom: 40,
+  },
+  subtitleText: {
+    fontSize: 20,
+    padding: 10,
+    marginTop: 40,
+  },
+  searchButton: {
+    padding: 10,
+    marginRight: 10,
+    marginTop: 10,
+    marginBottom: 80,
+  },
+  searchText: {
+    padding: 10,
+    marginLeft: 20,
+    justifyContent: "center",
+    fontSize: 20,
+  },
+  arrowIcon: {
+    padding: 10,
+    justifyContent: "center",
+    height: 52,
+    width: 65,
+  },
+});
