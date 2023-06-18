@@ -7,6 +7,7 @@ export const ProfileScreen = () => {
   const { signOut } = useContext(AuthContext);
 
   return (
+    // <View style={styles.background}>
     <SafeAreaView style={styles.safeAreaContainer}>
       <View style={styles.editButton}>
         <TouchableOpacity onPress={signOut}>
@@ -31,13 +32,18 @@ export const ProfileScreen = () => {
         </View>
       </View>
     </SafeAreaView>
+    // </View>
   );
 };
 
 const styles = StyleSheet.create({
+  //  background: {
+  // backgroundColor: "black",
+  // },
   safeAreaContainer: {
     flex: 1,
     flexDirection: "column",
+    backgroundColor: "#FFFBEC",
   },
   editButton: {
     position: "relative",
