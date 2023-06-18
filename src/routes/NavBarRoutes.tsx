@@ -1,11 +1,12 @@
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-import { Image } from 'react-native';
+import { Image } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { HomeScreen } from "../screens/AppStack/HomeScreen";
 import { GuidesScreen } from "../screens/AppStack/archived/GuidesScreen";
 import { ProfileScreen } from "../screens/AppStack/ProfileScreen";
 import { PlanScreen } from "../screens/AppStack/archived/PlanScreen";
 import { MatchScreen } from "../screens/AppStack/MatchScreen";
+import { ShopScreen } from "../screens/AppStack/ShopScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const App = createMaterialBottomTabNavigator();
@@ -15,7 +16,6 @@ const homeIcon = require("../../assets/images/HomeIcon.png");
 const profileIcon = require("../../assets/images/ProfileIcon.png");
 
 export const NavBarRoutes = () => {
-
   return (
     <App.Navigator
       initialRouteName="Guides"
@@ -45,7 +45,7 @@ export const NavBarRoutes = () => {
       />
       <App.Screen
         name="Profile"
-        component={ProfileScreen}
+        component={ShopScreen}
         options={{
           tabBarLabel: "Profile",
           tabBarIcon: ({ color }) => (
