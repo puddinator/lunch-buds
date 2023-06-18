@@ -13,7 +13,7 @@ export const ShopScreen = () => {
       <View style={styles.titleRow}>
         <TouchableOpacity style={styles.backButton} onPress={signOut}>
           <Image
-            source={require("../../../assets/images/BackButton.png")}
+            source={require("../../../../assets/images/BackButton.png")}
             style={styles.backIcon}
           />
         </TouchableOpacity>
@@ -24,7 +24,7 @@ export const ShopScreen = () => {
 
       <View style={styles.appleRow}>
         <Image
-          source={require("../../../assets/images/Apple.png")}
+          source={require("../../../../assets/images/Apple.png")}
           style={styles.appleIcon}
         />
         <VStack>
@@ -37,21 +37,21 @@ export const ShopScreen = () => {
       <View style={styles.ticketContainer}>
         <TouchableOpacity onPress={signOut}>
           <Image
-            source={require("../../../assets/images/TicketCommon.png")}
+            source={require("../../../../assets/images/TicketCommon.png")}
             style={styles.ticketIcon}
           />
         </TouchableOpacity>
 
         <TouchableOpacity onPress={signOut}>
           <Image
-            source={require("../../../assets/images/TicketRare.png")}
+            source={require("../../../../assets/images/TicketRare.png")}
             style={styles.ticketIcon}
           />
         </TouchableOpacity>
 
         <TouchableOpacity onPress={signOut}>
           <Image
-            source={require("../../../assets/images/TicketEpic.png")}
+            source={require("../../../../assets/images/TicketEpic.png")}
             style={styles.ticketIcon}
           />
         </TouchableOpacity>

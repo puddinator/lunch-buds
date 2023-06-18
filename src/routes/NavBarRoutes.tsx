@@ -24,7 +24,7 @@ export const NavBarRoutes = () => {
     >
       {/* For the 4 different navigation tabs */}
       <App.Screen
-        name="<Match>"
+        name="Match"
         component={MatchScreen}
         options={{
           tabBarLabel: "Match",
