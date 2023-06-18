@@ -16,24 +16,24 @@ export const ItineroNavigationContainer = () => {
 
   return (
     <>
-      {isLoadingInitial || !isAnimationFinish ? (
+      {/* {isLoadingInitial || !isAnimationFinish ? (
         <LottieSplash setIsAnimationFinish={setIsAnimationFinish} />
-      ) : (
-        <NavigationContainer>
-          <Stack.Navigator
-            screenOptions={{
-              headerShown: false,
-            }}
-          >
-            {/* {isLoggedIn ? ( */}
-            {true ? (
-              <Stack.Screen name="App" component={NavBarRoutes} />
-            ) : (
-              <Stack.Screen name="Auth" component={AuthRoutes} />
-            )}
-          </Stack.Navigator>
-        </NavigationContainer>
-      )}
+      ) : ( */}
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{
+            headerShown: false,
+          }}
+        >
+          {/* {isLoggedIn ? ( */}
+          {true ? (
+            <Stack.Screen name="App" component={NavBarRoutes} />
+          ) : (
+            <Stack.Screen name="Auth" component={AuthRoutes} />
+          )}
+        </Stack.Navigator>
+      </NavigationContainer>
+      {/* )} */}
     </>
   );
 };
