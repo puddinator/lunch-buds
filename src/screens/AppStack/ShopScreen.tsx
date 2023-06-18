@@ -37,27 +37,27 @@ export const ShopScreen = () => {
       <View style={styles.ticketContainer}>
         <TouchableOpacity onPress={signOut}>
           <Image
-            source={require("../../../assets/images/Ticket.png")}
+            source={require("../../../assets/images/TicketCommon.png")}
             style={styles.ticketIcon}
           />
         </TouchableOpacity>
-        <Text style={styles.ticketLabel}> Common</Text>
+        
 
         <TouchableOpacity onPress={signOut}>
           <Image
-            source={require("../../../assets/images/Ticket.png")}
+            source={require("../../../assets/images/TicketRare.png")}
             style={styles.ticketIcon}
           />
         </TouchableOpacity>
-        <Text style={styles.ticketLabel}> Rare </Text>
+        
 
         <TouchableOpacity onPress={signOut}>
           <Image
-            source={require("../../../assets/images/Ticket.png")}
+            source={require("../../../assets/images/TicketEpic.png")}
             style={styles.ticketIcon}
           />
         </TouchableOpacity>
-        <Text style={styles.ticketLabel}> Epic </Text>
+        
       </View>
     </SafeAreaView>
   );
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   titleText: {
     fontSize: 40,
     padding: 20,
-    paddingTop: 30,
+    paddingTop: 20,
     textAlign: "center",
   },
 
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    paddingBottom: 40,
+    paddingBottom: 50,
   },
 
   appleIcon: {
@@ -124,16 +124,12 @@ const styles = StyleSheet.create({
   },
 
   ticketIcon: {
-    width: 150,
-    height: 120,
+    width: 295,
+    height: 165,
     alignSelf: "center",
     justifyContent: "center",
-    marginBottom: 0,
+    marginBottom: 15,
   },
 
-  ticketLabel: {
-    textAlign: "center",
-    fontSize: 20,
-    marginBottom: 20,
-  },
+
 });
