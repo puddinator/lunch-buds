@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   },
   maingarden: {
     width: 300,
-    height: 90,
+    height: 200,
     marginTop: 60,
   },
 });
