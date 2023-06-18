@@ -10,6 +10,9 @@ import {
 } from "../../components/AuthStack/LoginInput";
 import { AuthContext } from "../../contexts/AuthContext";
 import { ISignInProps } from "../../contexts/interfaces/IAuthProvider";
+import { View } from "react-native";
+
+const logo = require("../../../assets/images/LunchBudsLogo.png");
 
 export const LoginScreen = () => {
   const [username, setUsername] = useState("");
@@ -19,18 +22,18 @@ export const LoginScreen = () => {
 
   return (
     <>
-      <LinearGradient
-        colors={["#DD5E89", "#f7bb97d9"]}
+      <View
         style={{
           flex: 1,
           alignItems: "center",
+          backgroundColor: "#FFFBEC",
         }}
       >
         <Box
           style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
         >
           <Stack space={20} w="100%" maxW="300px" alignItems="center">
-            {/* <Image source={logo} alt="itinero logo" size="xl" /> */}
+            <Image source={logo} alt="LunchBuds logo" height={100} />
             <Stack space={4} w="75%" maxW="300px" alignItems="center">
               <UsernameInput setUsername={setUsername} />
               <PasswordInput setPassword={setPassword} />
@@ -48,7 +51,7 @@ export const LoginScreen = () => {
           </Stack>
         </Box>
         <LoginFooter />
-      </LinearGradient>
+      </View>
       <Spinner visible={isLoading} />
     </>
   );

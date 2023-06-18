@@ -9,7 +9,7 @@ import { LottieSplash } from "./LottieSplash";
 
 const Stack = createNativeStackNavigator();
 
-export const ItineroNavigationContainer = () => {
+export const LunchBudsNavigationContainer = () => {
   const { isLoggedIn, isLoadingInitial } = useContext(AuthContext);
 
   const [isAnimationFinish, setIsAnimationFinish] = useState(false);
@@ -25,8 +25,8 @@ export const ItineroNavigationContainer = () => {
             headerShown: false,
           }}
         >
-          {/* {isLoggedIn ? ( */}
-          {true ? (
+          {isLoggedIn ? (
+            // {false ? (
             <Stack.Screen name="App" component={NavBarRoutes} />
           ) : (
             <Stack.Screen name="Auth" component={AuthRoutes} />

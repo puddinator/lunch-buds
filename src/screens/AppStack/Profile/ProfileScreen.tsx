@@ -1,4 +1,4 @@
-import { Text, Image } from "native-base";
+import { Text, Image, Button } from "native-base";
 import { useContext } from "react";
 import { View, SafeAreaView, StyleSheet, TouchableOpacity } from "react-native";
 import { AuthContext } from "../../../contexts/AuthContext";
@@ -11,7 +11,7 @@ export const ProfileScreen = () => {
     <SafeAreaView style={styles.safeAreaContainer}>
       <View style={styles.editButton}>
         <TouchableOpacity onPress={signOut}>
-          <Text> Edit Profile</Text>
+          <Text fontSize={20}>Edit</Text>
         </TouchableOpacity>
       </View>
 
@@ -26,7 +26,7 @@ export const ProfileScreen = () => {
           <Text style={styles.profileValue}> Tan Xiao Ming </Text>
         </View>
 
-        <View style={[styles.row, styles.ageRow]}>
+        <View style={styles.row}>
           <Text style={styles.profileLabel}> H/P:</Text>
           <Text style={styles.profileValue}> 912345678 </Text>
         </View>
@@ -35,6 +35,12 @@ export const ProfileScreen = () => {
           <Text style={styles.profileLabel}> Interest:</Text>
           <Text style={styles.interests}>insert buttons here</Text>
         </View>
+      </View>
+
+      <View style={{ flex: 1, alignItems: "center", marginBottom: 50 }}>
+        <Button style={{ width: "40%" }} onPress={signOut}>
+          <Text>Sign out</Text>
+        </Button>
       </View>
     </SafeAreaView>
     // </View>

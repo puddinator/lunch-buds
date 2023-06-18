@@ -89,23 +89,28 @@ export const AuthProvider = (props: { children: ReactNode }) => {
       signIn: async (data: ISignInProps) => {
         dispatch({ type: "LOADING" });
         // Send username, password to server and get a token, and handle errors if sign in failed
-        try {
-          const response = await axios.post(
-            "https://fine-plum-turtle-toga.cyclic.app/login",
-            data
-          );
-          console.log("token", response);
-          const authToken = response.data.accessToken;
 
-          if (!!authToken) dispatch({ type: "SIGN_IN", authToken });
-          else showToast();
+        // try {
 
-          // Set the token in SecureStore
-          await setItemAsync("authToken", authToken);
-        } catch (error) {
-          console.error(error);
-          showToast();
-        }
+        // const response = await axios.post(
+        //   "https://fine-plum-turtle-toga.cyclic.app/login",
+        //   data
+        // );
+        // console.log("token", response);
+        // const authToken = response.data.accessToken;
+        const authToken = "Test";
+
+        if (!!authToken) dispatch({ type: "SIGN_IN", authToken });
+        else showToast();
+
+        // Set the token in SecureStore
+        await setItemAsync("authToken", authToken);
+
+        // } catch (error) {
+        //   console.error(error);
+        //   showToast();
+        // }
+
         dispatch({ type: "LOADED" });
       },
 
@@ -113,32 +118,37 @@ export const AuthProvider = (props: { children: ReactNode }) => {
         dispatch({ type: "LOADING" });
         // Send sign up data to server and get a token, also handle errors if sign up failed
         // For some reason bob used urlencoded.. hope this works
-        try {
-          const formattedData = Object.keys(data)
-            // @ts-ignore
-            .map((key) => `${key}=${encodeURIComponent(data[key])}`)
-            .join("&");
 
-          const options = {
-            method: "POST",
-            headers: { "content-type": "application/x-www-form-urlencoded" },
-            formattedData,
-            url: "https://fine-plum-turtle-toga.cyclic.app/register",
-          };
+        // try {
 
-          const response = await axios(options);
-          console.log("token", response);
-          const authToken = response.data.accessToken;
+        const formattedData = Object.keys(data)
+          // @ts-ignore
+          .map((key) => `${key}=${encodeURIComponent(data[key])}`)
+          .join("&");
 
-          if (!!authToken) dispatch({ type: "SIGN_IN", authToken });
-          else showToast();
+        const options = {
+          method: "POST",
+          headers: { "content-type": "application/x-www-form-urlencoded" },
+          formattedData,
+          url: "https://fine-plum-turtle-toga.cyclic.app/register",
+        };
 
-          // Set the token in SecureStore
-          await setItemAsync("authToken", authToken);
-        } catch (error) {
-          console.error(error);
-          showToast();
-        }
+        // const response = await axios(options);
+        // console.log("token", response);
+        // const authToken = response.data.accessToken;
+        const authToken = "tempToken";
+
+        if (!!authToken) dispatch({ type: "SIGN_IN", authToken });
+        else showToast();
+
+        // Set the token in SecureStore
+        await setItemAsync("authToken", authToken);
+
+        // } catch (error) {
+        //   console.error(error);
+        //   showToast();
+        // }
+
         dispatch({ type: "LOADED" });
       },
 

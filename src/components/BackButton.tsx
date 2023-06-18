@@ -20,19 +20,14 @@ export const BackButton = () => {
 
     <View
       style={{
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "center",
-        paddingTop: 30,
-        paddingBottom: 0,
+        // flexDirection: "row",
+        // alignItems: "center",
+        // justifyContent: "center",
+        marginTop: 60,
+        marginLeft: 30,
       }}
     >
       <TouchableOpacity
-        style={{
-          position: "absolute",
-          left: 20,
-          padding: 10,
-        }}
         onPress={() => {
           navigation.goBack();
         }}
@@ -45,7 +40,7 @@ export const BackButton = () => {
           }}
         />
       </TouchableOpacity>
-      <Text
+      {/* <Text
         style={{
           fontSize: 40,
           padding: 20,
@@ -53,9 +48,8 @@ export const BackButton = () => {
           textAlign: "center",
         }}
       >
-        {" "}
-        Shop{" "}
-      </Text>
+        Shop
+      </Text> */}
     </View>
   );
 };

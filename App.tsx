@@ -5,7 +5,7 @@ import { View } from "react-native";
 import Toast from "react-native-toast-message";
 import { StatusBar } from "expo-status-bar";
 
-import { ItineroNavigationContainer } from "./src/components/ItineroNavigationContainer";
+import { LunchBudsNavigationContainer } from "./src/components/LunchBudsNavigationContainer";
 import { AuthProvider } from "./src/contexts/AuthProvider";
 import { useCustomFonts } from "./src/hooks/useCustomFonts";
 import { theme } from "./src/theme";
@@ -29,7 +29,7 @@ export default function App() {
       {/* below is for toast messages */}
       <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
         <AuthProvider>
-          <ItineroNavigationContainer />
+          <LunchBudsNavigationContainer />
           <Toast />
         </AuthProvider>
         <StatusBar backgroundColor={"transparent"} translucent />

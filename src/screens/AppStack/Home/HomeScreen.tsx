@@ -1,7 +1,7 @@
-import React from "react";
-import { Text, Image } from "native-base";
-import { View, TouchableOpacity, StyleSheet, SafeAreaView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { Image, Text } from "native-base";
+import React from "react";
+import { SafeAreaView, StyleSheet, TouchableOpacity } from "react-native";
 import { HomeStackNavigationProps } from "../../../routes/HomeRoutes";
 
 export const HomeScreen = () => {

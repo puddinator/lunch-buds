@@ -6,7 +6,7 @@ import { GuidesScreen } from "../screens/AppStack/archived/GuidesScreen";
 import { ProfileScreen } from "../screens/AppStack/Profile/ProfileScreen";
 import { PlanScreen } from "../screens/AppStack/archived/PlanScreen";
 import { MatchScreen as MatchRoutes } from "../screens/AppStack/Match/MatchScreen";
-import { ShopScreen } from "../screens/AppStack/Profile/ShopScreen";
+import { ShopScreen } from "../screens/AppStack/Home/ShopScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { ProfileRoutes } from "./ProfileRoutes";
 import { HomeRoutes } from "./HomeRoutes";
@@ -20,7 +20,7 @@ const profileIcon = require("../../assets/images/ProfileIcon.png");
 export const NavBarRoutes = () => {
   return (
     <App.Navigator
-      initialRouteName="Guides"
+      initialRouteName="Home"
       activeColor="#807550"
       barStyle={{ backgroundColor: "#E8E5CC" }}
     >

@@ -2,7 +2,7 @@ import {
   createNativeStackNavigator,
   NativeStackNavigationProp,
 } from "@react-navigation/native-stack";
-import { ShopScreen } from "../screens/AppStack/Profile/ShopScreen";
+import { ShopScreen } from "../screens/AppStack/Home/ShopScreen";
 import { ProfileScreen } from "../screens/AppStack/Profile/ProfileScreen";
 import { MatchScreen } from "../screens/AppStack/Match/MatchScreen";
 
