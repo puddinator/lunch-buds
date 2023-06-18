@@ -9,6 +9,10 @@ export const HomeScreen = () => {
         source={require("../../../assets/images/LunchBudsLogo.png")}
         style={styles.logo}
       />
+      <Image
+        source={require("../../../assets/images/Garden.png")}
+        style={styles.maingarden}
+      />
       <ShopButton />
       <WaterButton />
     </SafeAreaView>
@@ -76,6 +80,11 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   logo: {
+    width: 300,
+    height: 90,
+    marginTop: 60,
+  },
+  maingarden: {
     width: 300,
     height: 90,
     marginTop: 60,

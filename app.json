@@ -12,11 +12,9 @@
       "backgroundColor": "#ffffff"
     },
     "assetBundlePatterns": ["**/*"],
-    "expo": {
-      "androidStatusBar": {
-        "backgroundColor": "#FFFBEC",
-        "translucent": false
-      }
+    "androidStatusBar": {
+      "backgroundColor": "#FFFBEC",
+      "translucent": false
     },
     "ios": {
       "supportsTablet": true
