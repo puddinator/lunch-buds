@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { View, StyleSheet } from "react-native";
 import Spinner from "react-native-loading-spinner-overlay";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import {
   PasswordInput,
@@ -14,6 +15,14 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { ISignInProps } from "../../contexts/interfaces/IAuthProvider";
 
 const avatar = require("../../../assets/images/ProfileIcon.png");
+
+const setAsNewProfile = async () => {
+  try {
+    await AsyncStorage.setItem("isNewProfile", "true");
+  } catch (e) {
+    console.log("issue with setting isNewProfile");
+  }
+};
 
 export const NewProfileScreen = () => {
   const [username, setUsername] = useState("");
@@ -65,6 +74,7 @@ export const NewProfileScreen = () => {
               <Button
                 size="lg"
                 onPress={() => {
+                  setAsNewProfile();
                   const data = { username, password } as ISignInProps;
                   signUp(data);
                 }}
@@ -93,12 +103,12 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   profileLabel: {
-    textAlign: "right",
+    // textAlign: "right",
     width: "50%",
     fontSize: 20,
   },
   profileValue: {
-    textAlign: "left",
+    // textAlign: "left",
     width: "50%",
     fontSize: 20,
   },

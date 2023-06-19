@@ -1,29 +1,42 @@
 import { LinearGradient } from "expo-linear-gradient";
 import { Button, Image, Stack, Text } from "native-base";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView, View, StyleSheet, TouchableOpacity } from "react-native";
 import Spinner from "react-native-loading-spinner-overlay";
 
 //Added:
-import { HomeStackNavigationProps } from "../routes/HomeRoutes";
+import { HomeStackNavigationProps } from "../../../routes/HomeRoutes";
 
 import {
   PasswordInput,
   UsernameInput,
-} from "../components/AuthStack/LoginInput";
-import { BackButton } from "..//components/BackButton";
-import { AuthContext } from "../contexts/AuthContext";
-import { ISignInProps } from "../contexts/interfaces/IAuthProvider";
+} from "../../../components/AuthStack/LoginInput";
+import { BackButton } from "../../../components/BackButton";
+import { AuthContext } from "../../../contexts/AuthContext";
+import { ISignInProps } from "../../../contexts/interfaces/IAuthProvider";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export const Tutorial = () => {
+const setAsNotNewProfile = async () => {
+  try {
+    await AsyncStorage.setItem("isNewProfile", "false");
+  } catch (e) {
+    console.log("issue with setting isNewProfile");
+  }
+};
+
+export const TutorialScreen = () => {
   const navigation = useNavigation<HomeStackNavigationProps>();
+
+  useEffect(() => {
+    (async () => {
+      setAsNotNewProfile();
+    })();
+  }, []);
 
   return (
     <SafeAreaView style={styles.container}>
-
-    <ContinueButton navigation={navigation} />
-
+      <ContinueButton navigation={navigation} />
     </SafeAreaView>
   );
 };
@@ -43,8 +56,8 @@ const ContinueButton = ({ navigation }: TutorialContinueButton) => {
       }}
     >
       <Image
-        source={require("../../assets/images/ButtonContinue.png")}
-        style={styles.image}
+        source={require("../../../assets/images/ButtonContinue.png")}
+        style={{ width: 45, height: 35 }}
       />
     </TouchableOpacity>
   );
@@ -64,10 +77,4 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-
-  image: {
-    width: 45,
-    height: 35,
-  },
-
 });

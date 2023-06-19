@@ -1,11 +1,32 @@
 import { useNavigation } from "@react-navigation/native";
 import { Image, Text } from "native-base";
-import React from "react";
+import React, { useEffect } from "react";
 import { SafeAreaView, StyleSheet, TouchableOpacity } from "react-native";
 import { HomeStackNavigationProps } from "../../../routes/HomeRoutes";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+const checkIfNewProfile = async () => {
+  try {
+    const value = await AsyncStorage.getItem("isNewProfile");
+    if (value === "true") {
+      return true;
+    }
+    return false;
+  } catch (e) {
+    console.log("error with getting isNewProfile");
+  }
+};
 
 export const HomeScreen = () => {
   const navigation = useNavigation<HomeStackNavigationProps>();
+
+  useEffect(() => {
+    (async () => {
+      if ((await checkIfNewProfile()) === true) {
+        navigation.navigate("Tutorial");
+      }
+    })();
+  }, []);
 
   return (
     <SafeAreaView style={styles.container}>
