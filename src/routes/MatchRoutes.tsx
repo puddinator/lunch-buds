@@ -1,47 +1,34 @@
-import {
-  createNativeStackNavigator,
-  NativeStackNavigationProp,
-} from "@react-navigation/native-stack";
-import { ShopScreen } from "../screens/AppStack/Home/ShopScreen";
-import { ProfileScreen } from "../screens/AppStack/Profile/ProfileScreen";
-import { MatchScreen } from "../screens/AppStack/Match/MatchScreen";
-import { FindMatchesScreen } from "../screens/AppStack/Match/FindMatchesScreen";
-import { LoadingMatchesScreen } from "../screens/AppStack/Match/LoadingMatchesScreen";
-import { ShowMatchesScreen } from "../screens/AppStack/Match/ShowMatches";
-import { MatchProfileScreen } from "../screens/AppStack/Match/MatchProfileScreen";
-import { PastMatchesScreen } from "../screens/AppStack/Match/PastMatchesScreen";
-import { MatchConnectScreen } from "../screens/AppStack/Match/MatchConnectScreen";
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import { NewMatchesRoutes } from "./NewMatchesRoutes";
+import { PastMatchesRoutes } from "./PastMatchesRoutes";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { View } from "react-native";
 
-type MatchStackParamList = {
-  Match: undefined;
-  "Past Matches": undefined;
-  "Find Matches": undefined;
-  "Loading Matches": undefined;
-  "Show Matches": undefined;
-  "Match Profile": undefined;
-  "Match Connect": undefined;
-};
+const Match = createMaterialTopTabNavigator();
 
-export type MatchStackNavigationProps =
-  NativeStackNavigationProp<MatchStackParamList>;
-
-const Match = createNativeStackNavigator<MatchStackParamList>();
-
-export const ProfileRoutes = () => {
+export const MatchRoutes = () => {
+  const insets = useSafeAreaInsets();
   return (
-    <Match.Navigator
-      initialRouteName="Match"
-      screenOptions={{
-        headerShown: false,
-      }}
-    >
-      <Match.Screen name="Match" component={MatchScreen} />
-      <Match.Screen name="Past Matches" component={PastMatchesScreen} />
-      <Match.Screen name="Find Matches" component={FindMatchesScreen} />
-      <Match.Screen name="Loading Matches" component={LoadingMatchesScreen} />
-      <Match.Screen name="Show Matches" component={ShowMatchesScreen} />
-      <Match.Screen name="Match Profile" component={MatchProfileScreen} />
-      <Match.Screen name="Match Connect" component={MatchConnectScreen} />
-    </Match.Navigator>
+    <SafeAreaView>
+      {/* // <View
+    //   style={{
+    //     paddingTop: insets.top,
+    //     paddingBottom: insets.bottom,
+
+    //     flex: 1,
+    //     justifyContent: "space-between",
+    //     alignItems: "center",
+    //   }}
+    // > */}
+      <Match.Navigator initialRouteName="New Matches Routes">
+        <Match.Screen name="New Matches Routes" component={NewMatchesRoutes} />
+        <Match.Screen
+          name="Past Matches Routes"
+          component={PastMatchesRoutes}
+        />
+      </Match.Navigator>
+      {/* // </View> */}
+    </SafeAreaView>
   );
 };

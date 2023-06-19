@@ -3,11 +3,10 @@ import {
   NativeStackNavigationProp,
 } from "@react-navigation/native-stack";
 
+import { ISignInProps } from "../contexts/interfaces/IAuthProvider";
+import { NewProfileScreen } from "../screens/AuthStack/NewProfileScreen";
 import { LoginScreen } from "./../screens/AuthStack/LoginScreen";
 import { SignUpScreen } from "./../screens/AuthStack/SignUpScreen";
-import { NewProfileScreen } from "../screens/AuthStack/NewProfileScreen";
-import { ISignInProps } from "../contexts/interfaces/IAuthProvider";
-import { Tutorial } from "../screens/AppStack/Home/TutorialScreen";
 
 type AuthStackParamList = {
   "Sign Up": undefined;

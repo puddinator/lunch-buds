@@ -72,67 +72,43 @@ export const MatchScreen = () => {
 
   // Actual Screen here:
 
-  return (
-    <SafeAreaView style={styles.safeAreaContainer}>
-      <Text style={styles.titleText}>Find your LunchBuds!</Text>
-      <View>
-        <HStack>
-          <Button onPress={showDatepicker} title="Select date" />
-          <Button onPress={showTimepicker} title="Select time" />
-        </HStack>
-        <Text>selected: {date.toLocaleString()}</Text>
-        {show && (
-          <DateTimePicker
-            testID="dateTimePicker"
-            value={date}
-            mode={mode}
-            is24Hour={true}
-            onChange={onChange}
-          />
-        )}
-      </View>
-      <Text style={styles.subtitleText}>Someone who is interested in...</Text>
+  return <Text>Test</Text>;
+  // return (
+  //   <SafeAreaView
+  //     style={{
+  //       flex: 1,
+  //       alignItems: "center",
+  //       justifyContent: "center",
+  //       backgroundColor: "#FFFBEC",
+  //     }}
+  //   >
+  //     <Text style={styles.titleText}>Find your LunchBuds!</Text>
+  //     <View>
+  //       <HStack>
+  //         <Button onPress={showDatepicker} title="Select date" />
+  //         <Button onPress={showTimepicker} title="Select time" />
+  //       </HStack>
+  //       <Text>selected: {date.toLocaleString()}</Text>
+  //       {show && (
+  //         <DateTimePicker
+  //           testID="dateTimePicker"
+  //           value={date}
+  //           mode={mode}
+  //           is24Hour={true}
+  //           onChange={onChange}
+  //         />
+  //       )}
+  //     </View>
+  //     <Text style={styles.subtitleText}>Someone who is interested in...</Text>
 
-      <InterestForm />
+  //     <InterestForm />
 
-      <SearchButton />
-    </SafeAreaView>
-
-    // <>
-    //   <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-    //     <Stack space={10}>
-    //       <Text fontSize={"3xl"} color="white" fontWeight={600}>
-    //         Let's make your next travel incredible
-    //       </Text>
-    //       <Input
-    //         size="xl"
-    //         InputLeftElement={
-    //           <Pressable onPress={() => handlePress()}>
-    //             <Icon
-    //               as={<MaterialIcons name="search" />}
-    //               size={5}
-    //               mr="2"
-    //               color="grey"
-    //             />
-    //           </Pressable>
-    //         }
-    //         placeholder="Search for guides, users, attractions..."
-    //         placeholderTextColor="black"
-    //         onChangeText={setSearchTerm}
-    //       />
-    //     </Stack>
-    //   </View>
-    // </>
-  );
+  //     <SearchButton />
+  //   </SafeAreaView>
+  // );
 };
 
 const styles = StyleSheet.create({
-  safeAreaContainer: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#FFFBEC",
-  },
   titleText: {
     fontSize: 30,
     padding: 10,
