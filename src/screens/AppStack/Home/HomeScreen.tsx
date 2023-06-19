@@ -22,9 +22,10 @@ export const HomeScreen = () => {
 
   useEffect(() => {
     (async () => {
-      if ((await checkIfNewProfile()) === true) {
-        navigation.navigate("Tutorial");
-      }
+      navigation.navigate("Tutorial");
+      // if ((await checkIfNewProfile()) === true) {
+      //   navigation.navigate("Tutorial");
+      // }
     })();
   }, []);
 

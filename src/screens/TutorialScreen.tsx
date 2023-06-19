@@ -1,21 +1,22 @@
 import { LinearGradient } from "expo-linear-gradient";
 import { Button, Image, Stack, Text } from "native-base";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView, View, StyleSheet, TouchableOpacity } from "react-native";
 import Spinner from "react-native-loading-spinner-overlay";
 
 //Added:
-import { HomeStackNavigationProps } from "../../../routes/HomeRoutes";
+import { HomeStackNavigationProps } from "../routes/HomeRoutes";
 
 import {
   PasswordInput,
   UsernameInput,
-} from "../../../components/AuthStack/LoginInput";
-import { BackButton } from "../../../components/BackButton";
-import { AuthContext } from "../../../contexts/AuthContext";
-import { ISignInProps } from "../../../contexts/interfaces/IAuthProvider";
+} from "../components/AuthStack/LoginInput";
+import { BackButton } from "../components/BackButton";
+import { AuthContext } from "../contexts/AuthContext";
+import { ISignInProps } from "../contexts/interfaces/IAuthProvider";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Video } from "expo-av";
 
 const setAsNotNewProfile = async () => {
   try {
@@ -27,17 +28,35 @@ const setAsNotNewProfile = async () => {
 
 export const TutorialScreen = () => {
   const navigation = useNavigation<HomeStackNavigationProps>();
+  const [isPlaybackComplete, setIsPlaybackComplete] = useState(false);
+  const video = useRef(null);
 
   useEffect(() => {
     (async () => {
       setAsNotNewProfile();
     })();
-  }, []);
+  });
 
   return (
-    <SafeAreaView style={styles.container}>
-      <ContinueButton navigation={navigation} />
-    </SafeAreaView>
+    <>
+      <Video
+        source={require("../../assets/videos/LunchBudsTutorialV2.mp4")}
+        style={{ flex: 1 }}
+        shouldPlay={true}
+        onPlaybackStatusUpdate={() => setIsPlaybackComplete(true)}
+      />
+
+      <View
+        style={{
+          backgroundColor: "#FFFBEC",
+          position: "absolute",
+          height: 10000, // im not sure if this will cause any problems
+          width: 10000, // otherwise get actual dimensions from Dimensions
+          zIndex: -1,
+        }}
+      ></View>
+      {isPlaybackComplete && <ContinueButton navigation={navigation} />}
+    </>
   );
 };
 
@@ -56,7 +75,7 @@ const ContinueButton = ({ navigation }: TutorialContinueButton) => {
       }}
     >
       <Image
-        source={require("../../../../assets/images/ButtonContinue.png")}
+        source={require("../../assets/images/ButtonContinue.png")}
         style={{ width: 45, height: 35 }}
       />
     </TouchableOpacity>
@@ -64,12 +83,6 @@ const ContinueButton = ({ navigation }: TutorialContinueButton) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#FFFBEC",
-    alignItems: "center",
-  },
-
   ButtonContainer: {
     // Continue Button
     position: "absolute",
