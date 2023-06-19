@@ -1,25 +1,14 @@
-import { MaterialIcons } from "@expo/vector-icons";
-import {
-  Icon,
-  Input,
-  Pressable,
-  Text,
-  Image,
-  Stack,
-  HStack,
-  Checkbox,
-} from "native-base";
+import DateTimePicker from "@react-native-community/datetimepicker";
+import { Checkbox, HStack, Image, Text } from "native-base";
 import { useState } from "react";
 import {
   Button,
-  Dimensions,
   Platform,
-  TouchableOpacity,
-  View,
   SafeAreaView,
   StyleSheet,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import DateTimePicker from "@react-native-community/datetimepicker";
 
 //Search Button--------------------------------------------------------------------------------------
 const SearchButton = () => {

@@ -5,11 +5,14 @@ import {
 import { HomeScreen } from "../screens/AppStack/Home/HomeScreen";
 import { ShopScreen } from "../screens/AppStack/Home/ShopScreen";
 import { Tutorial } from "../screens/Tutorial";
-
+import { GrowTreeScreen } from "../screens/AppStack/Home/GrowTreeScreen";
+import { PromptsScreen } from "../screens/AppStack/Home/PromptsScreen";
 type HomeStackParamList = {
   Home: undefined;
   Tutorial: undefined;
   Shop: undefined;
+  "Grow Tree": undefined;
+  Prompts: undefined;
 };
 
 export type HomeStackNavigationProps =
@@ -28,6 +31,8 @@ export const HomeRoutes = () => {
       <Home.Screen name="Home" component={HomeScreen} />
       <Home.Screen name="Tutorial" component={Tutorial} />
       <Home.Screen name="Shop" component={ShopScreen} />
+      <Home.Screen name="Grow Tree" component={GrowTreeScreen} />
+      <Home.Screen name="Prompts" component={PromptsScreen} />
     </Home.Navigator>
   );
 };
