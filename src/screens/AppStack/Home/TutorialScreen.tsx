@@ -56,7 +56,7 @@ const ContinueButton = ({ navigation }: TutorialContinueButton) => {
       }}
     >
       <Image
-        source={require("../../../assets/images/ButtonContinue.png")}
+        source={require("../../../../assets/images/ButtonContinue.png")}
         style={{ width: 45, height: 35 }}
       />
     </TouchableOpacity>
