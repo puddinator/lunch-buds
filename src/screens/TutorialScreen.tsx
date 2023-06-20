@@ -29,7 +29,7 @@ const setAsNotNewProfile = async () => {
 export const TutorialScreen = () => {
   const navigation = useNavigation<HomeStackNavigationProps>();
   const [isPlaybackComplete, setIsPlaybackComplete] = useState(false);
-  const video = useRef(null);
+  // const video = useRef(null);
 
   useEffect(() => {
     (async () => {
@@ -69,7 +69,12 @@ interface TutorialContinueButton {
 const ContinueButton = ({ navigation }: TutorialContinueButton) => {
   return (
     <TouchableOpacity
-      style={styles.ButtonContainer}
+      style={{
+        flex: 1,
+        position: "absolute",
+        bottom: "10%",
+        left: "30%",
+      }}
       onPress={() => {
         navigation.navigate("Home");
       }}
@@ -81,15 +86,3 @@ const ContinueButton = ({ navigation }: TutorialContinueButton) => {
     </TouchableOpacity>
   );
 };
-
-const styles = StyleSheet.create({
-  ButtonContainer: {
-    // Continue Button
-    flex: 1,
-    position: "absolute",
-    bottom: "10%",
-    left: "30%",
-    //justifyContent: "center",
-    //alignItems: "center",
-  },
-});

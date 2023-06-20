@@ -6,7 +6,6 @@ import { HomeScreen } from "../screens/AppStack/Home/HomeScreen";
 import { ShopScreen } from "../screens/AppStack/Home/ShopScreen";
 import { TutorialScreen } from "../screens/TutorialScreen";
 import { GrowTreeScreen } from "../screens/AppStack/Home/GrowTreeScreen";
-import { PromptsScreen } from "../screens/AppStack/Home/PromptsScreen";
 
 type HomeStackParamList = {
   Home: undefined;
@@ -32,7 +31,6 @@ export const HomeRoutes = () => {
       <Home.Screen name="Home" component={HomeScreen} />
       <Home.Screen name="Shop" component={ShopScreen} />
       <Home.Screen name="Grow Tree" component={GrowTreeScreen} />
-      <Home.Screen name="Prompts" component={PromptsScreen} />
     </Home.Navigator>
   );
 };

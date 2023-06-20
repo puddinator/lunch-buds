@@ -1,10 +1,9 @@
 import { useNavigation } from "@react-navigation/native";
-import { Image, Text } from "native-base";
-import React, { useEffect } from "react";
+import { Image, Modal, Text, VStack } from "native-base";
+import React, { useEffect, useState } from "react";
 import { SafeAreaView, StyleSheet, TouchableOpacity } from "react-native";
 import { HomeStackNavigationProps } from "../../../routes/HomeRoutes";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-
 
 const checkIfNewProfile = async () => {
   try {
@@ -18,9 +17,9 @@ const checkIfNewProfile = async () => {
   }
 };
 
-
 export const HomeScreen = () => {
   const navigation = useNavigation<HomeStackNavigationProps>();
+  const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -49,8 +48,27 @@ export const HomeScreen = () => {
         style={styles.tree2}
       />
       <ShopButton navigation={navigation} />
-      <WaterButton />
+      <WaterButton setModalVisible={setModalVisible} />
       <TutorialButton navigation={navigation} />
+
+      <Modal
+        isOpen={modalVisible}
+        onClose={() => setModalVisible(false)}
+        avoidKeyboard
+        justifyContent="center"
+        bottom="4"
+        size="lg"
+      >
+        <Modal.Content backgroundColor={"#FFFBEC"}>
+          <Modal.CloseButton />
+          <Modal.Body>
+            <VStack alignItems={"center"} space={2}>
+              <Text>You have watered your trees for today!</Text>
+              <Text>125 Apples collected. </Text>
+            </VStack>
+          </Modal.Body>
+        </Modal.Content>
+      </Modal>
     </SafeAreaView>
   );
 };
@@ -68,7 +86,7 @@ const ShopButton = ({ navigation }: IShopButton) => {
     <TouchableOpacity
       style={styles.LeftbuttonContainer}
       onPress={() => {
-        navigation.navigate("Prompts");
+        navigation.navigate("Shop");
       }}
     >
       <Image
@@ -98,9 +116,12 @@ const TutorialButton = ({ navigation }: TotutorialButton) => {
 };
 
 //Watering Button--------------------------------------------------------------------------------------
-const WaterButton = () => {
+const WaterButton = ({ setModalVisible }: any) => {
   return (
-    <TouchableOpacity style={styles.RightbuttonContainer}>
+    <TouchableOpacity
+      style={styles.RightbuttonContainer}
+      onPress={() => setModalVisible(true)}
+    >
       <Image
         source={require("../../../../assets/images/WateringCan.png")}
         style={styles.waterIcon}
