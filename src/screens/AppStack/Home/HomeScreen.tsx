@@ -5,6 +5,7 @@ import { SafeAreaView, StyleSheet, TouchableOpacity } from "react-native";
 import { HomeStackNavigationProps } from "../../../routes/HomeRoutes";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
+
 const checkIfNewProfile = async () => {
   try {
     const value = await AsyncStorage.getItem("isNewProfile");
@@ -16,6 +17,7 @@ const checkIfNewProfile = async () => {
     console.log("error with getting isNewProfile");
   }
 };
+
 
 export const HomeScreen = () => {
   const navigation = useNavigation<HomeStackNavigationProps>();
@@ -37,6 +39,14 @@ export const HomeScreen = () => {
       <Image
         source={require("../../../../assets/images/Garden.png")}
         style={styles.maingarden}
+      />
+      <Image
+        source={require("../../../../assets/images/TreeGreen.png")}
+        style={styles.tree1}
+      />
+      <Image
+        source={require("../../../../assets/images/TreeRed.png")}
+        style={styles.tree2}
       />
       <ShopButton navigation={navigation} />
       <WaterButton />
@@ -156,5 +166,18 @@ const styles = StyleSheet.create({
     width: 300,
     height: 200,
     marginTop: "50%",
+  },
+  tree1: {
+    width: 100,
+    height: 100,
+    position: "absolute",
+    top: 450,
+  },
+  tree2: {
+    width: 80,
+    height: 150,
+    position: "absolute",
+    top: 370,
+    left: 85,
   },
 });
