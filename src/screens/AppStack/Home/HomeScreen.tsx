@@ -68,7 +68,7 @@ const ShopButton = ({ navigation }: IShopButton) => {
     <TouchableOpacity
       style={styles.LeftbuttonContainer}
       onPress={() => {
-        navigation.navigate("Shop");
+        navigation.navigate("Prompts");
       }}
     >
       <Image
