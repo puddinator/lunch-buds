@@ -4,13 +4,13 @@ import {
 } from "@react-navigation/native-stack";
 import { HomeScreen } from "../screens/AppStack/Home/HomeScreen";
 import { ShopScreen } from "../screens/AppStack/Home/ShopScreen";
-import { TutorialScreen } from "../screens/AppStack/Home/TutorialScreen";
+import { TutorialScreen } from "../screens/TutorialScreen";
 import { GrowTreeScreen } from "../screens/AppStack/Home/GrowTreeScreen";
 import { PromptsScreen } from "../screens/AppStack/Home/PromptsScreen";
 
 type HomeStackParamList = {
   Home: undefined;
-  Tutorial: undefined;
+  Tutorial: undefined; // it's not actl in the stack
   Shop: undefined;
   "Grow Tree": undefined;
   Prompts: undefined;
@@ -30,7 +30,6 @@ export const HomeRoutes = () => {
       }}
     >
       <Home.Screen name="Home" component={HomeScreen} />
-      <Home.Screen name="Tutorial" component={TutorialScreen} />
       <Home.Screen name="Shop" component={ShopScreen} />
       <Home.Screen name="Grow Tree" component={GrowTreeScreen} />
       <Home.Screen name="Prompts" component={PromptsScreen} />

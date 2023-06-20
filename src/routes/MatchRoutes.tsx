@@ -1,47 +1,32 @@
-import {
-  createNativeStackNavigator,
-  NativeStackNavigationProp,
-} from "@react-navigation/native-stack";
-import { ShopScreen } from "../screens/AppStack/Home/ShopScreen";
-import { ProfileScreen } from "../screens/AppStack/Profile/ProfileScreen";
-import { MatchScreen } from "../screens/AppStack/Match/MatchScreen";
-import { FindMatchesScreen } from "../screens/AppStack/Match/FindMatchesScreen";
-import { LoadingMatchesScreen } from "../screens/AppStack/Match/LoadingMatchesScreen";
-import { ShowMatchesScreen } from "../screens/AppStack/Match/ShowMatches";
-import { MatchProfileScreen } from "../screens/AppStack/Match/MatchProfileScreen";
-import { PastMatchesScreen } from "../screens/AppStack/Match/PastMatchesScreen";
-import { MatchConnectScreen } from "../screens/AppStack/Match/MatchConnectScreen";
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import { NewMatchesRoutes } from "./NewMatchesRoutes";
+import { PastMatchesRoutes } from "./PastMatchesRoutes";
+import { useSafeArea } from "react-native-safe-area-view";
+import { View } from "react-native";
 
-type MatchStackParamList = {
-  Match: undefined;
-  "Past Matches": undefined;
-  "Find Matches": undefined;
-  "Loading Matches": undefined;
-  "Show Matches": undefined;
-  "Match Profile": undefined;
-  "Match Connect": undefined;
-};
+const Match = createMaterialTopTabNavigator();
 
-export type MatchStackNavigationProps =
-  NativeStackNavigationProp<MatchStackParamList>;
+export const MatchRoutes = () => {
+  const safeArea = useSafeArea();
 
-const Match = createNativeStackNavigator<MatchStackParamList>();
-
-export const ProfileRoutes = () => {
   return (
-    <Match.Navigator
-      initialRouteName="Match"
-      screenOptions={{
-        headerShown: false,
-      }}
+    <View
+      style={{ flex: 1, paddingTop: safeArea.top, backgroundColor: "#FFFBEC" }}
     >
-      <Match.Screen name="Match" component={MatchScreen} />
-      <Match.Screen name="Past Matches" component={PastMatchesScreen} />
-      <Match.Screen name="Find Matches" component={FindMatchesScreen} />
-      <Match.Screen name="Loading Matches" component={LoadingMatchesScreen} />
-      <Match.Screen name="Show Matches" component={ShowMatchesScreen} />
-      <Match.Screen name="Match Profile" component={MatchProfileScreen} />
-      <Match.Screen name="Match Connect" component={MatchConnectScreen} />
-    </Match.Navigator>
+      <Match.Navigator
+        initialRouteName="New Match"
+        screenOptions={{
+          tabBarLabelStyle: { fontSize: 15, fontFamily: "minecraft-bold" },
+          tabBarActiveTintColor: "#4f92ca",
+          tabBarStyle: {
+            backgroundColor: "#FFFBEC",
+            borderColor: "#FFFBEC",
+          },
+        }}
+      >
+        <Match.Screen name="New Match" component={NewMatchesRoutes} />
+        <Match.Screen name="Past Matches" component={PastMatchesRoutes} />
+      </Match.Navigator>
+    </View>
   );
 };

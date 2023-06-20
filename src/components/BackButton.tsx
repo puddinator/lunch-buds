@@ -1,8 +1,7 @@
-import React from "react";
 import { useNavigation } from "@react-navigation/native";
-import { TouchableOpacity, Text, View } from "react-native";
-import { Box, Icon, Image } from "native-base";
-import { Ionicons } from "@expo/vector-icons";
+import { Image } from "native-base";
+import React from "react";
+import { TouchableOpacity, View } from "react-native";
 
 export const BackButton = () => {
   const navigation = useNavigation();
@@ -40,16 +39,6 @@ export const BackButton = () => {
           }}
         />
       </TouchableOpacity>
-      {/* <Text
-        style={{
-          fontSize: 40,
-          padding: 20,
-          paddingTop: 20,
-          textAlign: "center",
-        }}
-      >
-        Shop
-      </Text> */}
     </View>
   );
 };

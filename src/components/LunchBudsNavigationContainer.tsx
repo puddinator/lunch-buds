@@ -6,6 +6,7 @@ import { AuthContext } from "../contexts/AuthContext";
 import { NavBarRoutes } from "../routes/NavBarRoutes";
 import { AuthRoutes } from "../routes/AuthRoutes";
 import { LottieSplash } from "./LottieSplash";
+import { TutorialScreen } from "../screens/TutorialScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -27,7 +28,10 @@ export const LunchBudsNavigationContainer = () => {
         >
           {isLoggedIn ? (
             // {false ? (
-            <Stack.Screen name="App" component={NavBarRoutes} />
+            <>
+              <Stack.Screen name="App" component={NavBarRoutes} />
+              <Stack.Screen name="Tutorial" component={TutorialScreen} />
+            </>
           ) : (
             <Stack.Screen name="Auth" component={AuthRoutes} />
           )}

@@ -9,6 +9,7 @@ import { LunchBudsNavigationContainer } from "./src/components/LunchBudsNavigati
 import { AuthProvider } from "./src/contexts/AuthProvider";
 import { useCustomFonts } from "./src/hooks/useCustomFonts";
 import { theme } from "./src/theme";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -25,16 +26,16 @@ export default function App() {
 
   return (
     <NativeBaseProvider theme={theme}>
-      {/* <SafeAreaProvider> */}
-      {/* below is for toast messages */}
-      <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
-        <AuthProvider>
-          <LunchBudsNavigationContainer />
-          <Toast />
-        </AuthProvider>
-        <StatusBar backgroundColor={"transparent"} translucent />
-      </View>
-      {/* </SafeAreaProvider> */}
+      <SafeAreaProvider>
+        {/* below is for toast messages */}
+        <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
+          <AuthProvider>
+            <LunchBudsNavigationContainer />
+            <Toast />
+          </AuthProvider>
+          <StatusBar backgroundColor={"transparent"} translucent />
+        </View>
+      </SafeAreaProvider>
     </NativeBaseProvider>
   );
 }
