@@ -155,6 +155,6 @@ const styles = StyleSheet.create({
   maingarden: {
     width: 300,
     height: 200,
-    marginTop: 60,
+    marginTop: "50%",
   },
 });

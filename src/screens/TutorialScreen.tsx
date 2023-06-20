@@ -76,7 +76,7 @@ const ContinueButton = ({ navigation }: TutorialContinueButton) => {
     >
       <Image
         source={require("../../assets/images/ButtonContinue.png")}
-        style={{ width: 45, height: 35 }}
+        style={{ width: 150, height: 50 }}
       />
     </TouchableOpacity>
   );
@@ -85,9 +85,11 @@ const ContinueButton = ({ navigation }: TutorialContinueButton) => {
 const styles = StyleSheet.create({
   ButtonContainer: {
     // Continue Button
+    flex: 1,
     position: "absolute",
     bottom: "10%",
-    justifyContent: "center",
-    alignItems: "center",
+    left: "30%",
+    //justifyContent: "center",
+    //alignItems: "center",
   },
 });
