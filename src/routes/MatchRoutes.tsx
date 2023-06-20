@@ -1,34 +1,32 @@
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { NewMatchesRoutes } from "./NewMatchesRoutes";
 import { PastMatchesRoutes } from "./PastMatchesRoutes";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { useSafeArea } from "react-native-safe-area-view";
 import { View } from "react-native";
 
 const Match = createMaterialTopTabNavigator();
 
 export const MatchRoutes = () => {
-  const insets = useSafeAreaInsets();
-  return (
-    <SafeAreaView>
-      {/* // <View
-    //   style={{
-    //     paddingTop: insets.top,
-    //     paddingBottom: insets.bottom,
+  const safeArea = useSafeArea();
 
-    //     flex: 1,
-    //     justifyContent: "space-between",
-    //     alignItems: "center",
-    //   }}
-    // > */}
-      <Match.Navigator initialRouteName="New Matches Routes">
-        <Match.Screen name="New Matches Routes" component={NewMatchesRoutes} />
-        <Match.Screen
-          name="Past Matches Routes"
-          component={PastMatchesRoutes}
-        />
+  return (
+    <View
+      style={{ flex: 1, paddingTop: safeArea.top, backgroundColor: "#FFFBEC" }}
+    >
+      <Match.Navigator
+        initialRouteName="New Match"
+        screenOptions={{
+          tabBarLabelStyle: { fontSize: 15, fontFamily: "minecraft-bold" },
+          tabBarActiveTintColor: "#4f92ca",
+          tabBarStyle: {
+            backgroundColor: "#FFFBEC",
+            borderColor: "#FFFBEC",
+          },
+        }}
+      >
+        <Match.Screen name="New Match" component={NewMatchesRoutes} />
+        <Match.Screen name="Past Matches" component={PastMatchesRoutes} />
       </Match.Navigator>
-      {/* // </View> */}
-    </SafeAreaView>
+    </View>
   );
 };

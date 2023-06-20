@@ -10,6 +10,7 @@ import { PromptsScreen } from "../screens/AppStack/Home/PromptsScreen";
 
 type HomeStackParamList = {
   Home: undefined;
+  Tutorial: undefined; // it's not actl in the stack
   Shop: undefined;
   "Grow Tree": undefined;
   Prompts: undefined;
