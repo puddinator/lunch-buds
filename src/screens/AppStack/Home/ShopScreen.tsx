@@ -11,10 +11,10 @@ export const ShopScreen = () => {
     <SafeAreaView style={styles.safeAreaContainer}>
       {/*  Title and back button   ----------------------------------------------- */}
       <BackButton />
-
       {/* Count of apples -------------------------------------------------------- */}
 
       <View style={styles.appleRow}>
+
         <Image
           source={require("../../../../assets/images/Apple.png")}
           style={styles.appleIcon}
@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
     height: 50,
     width: 50,
   },
+
   appleLabel: {
     fontSize: 20,
     paddingTop: 10,
@@ -91,10 +92,10 @@ const styles = StyleSheet.create({
   },
 
   ticketIcon: {
-    width: 295,
-    height: 165,
+    width: 270,
+    height: 150,
     alignSelf: "center",
     justifyContent: "center",
-    marginBottom: 15,
+    marginBottom: 25,
   },
 });
