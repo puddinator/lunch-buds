@@ -14,8 +14,6 @@ import { BackButton } from "../../components/BackButton";
 import { AuthContext } from "../../contexts/AuthContext";
 import { ISignInProps } from "../../contexts/interfaces/IAuthProvider";
 
-const avatar = require("../../../assets/images/ProfileIcon.png");
-
 const setAsNewProfile = async () => {
   try {
     await AsyncStorage.setItem("isNewProfile", "true");
@@ -47,7 +45,7 @@ export const NewProfileScreen = () => {
         >
           <Stack space={20} w="100%" maxW="300px" alignItems="center">
             <Image
-              source={avatar}
+              source={require("../../../assets/images/ProfileIcon.png")}
               alt="avatar"
               height={100}
               width={70}
