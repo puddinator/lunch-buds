@@ -40,11 +40,15 @@ export const HomeScreen = () => {
       />
       <ShopButton navigation={navigation} />
       <WaterButton />
+      <TutorialButton navigation={navigation} />
     </SafeAreaView>
   );
 };
 
 interface IShopButton {
+  navigation: HomeStackNavigationProps;
+}
+interface TotutorialButton {
   navigation: HomeStackNavigationProps;
 }
 
@@ -65,6 +69,24 @@ const ShopButton = ({ navigation }: IShopButton) => {
     </TouchableOpacity>
   );
 };
+
+//Tutorial Button--------------------------------------------------------------------------------------
+const TutorialButton = ({ navigation }: TotutorialButton) => {
+  return (
+    <TouchableOpacity
+      style={styles.TopLeftbuttonContainer}
+      onPress={() => {
+        navigation.navigate("Tutorial");
+      }}
+    >
+      <Image
+        source={require("../../../../assets/images/ButtonTutorial.png")}
+        style={styles.image1}
+      />
+    </TouchableOpacity>
+  );
+};
+
 //Watering Button--------------------------------------------------------------------------------------
 const WaterButton = () => {
   return (
@@ -92,6 +114,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  TopLeftbuttonContainer: {
+    // TO TUTORIAL BUTTON
+    position: "absolute",
+    right: "1%",
+    top: "5%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
   RightbuttonContainer: {
     // WATER BUTTON
     position: "absolute",
@@ -103,6 +133,10 @@ const styles = StyleSheet.create({
   image: {
     width: 45,
     height: 35,
+  },
+  image1: {
+    width: 100,
+    height: 100,
   },
   waterIcon: {
     width: 45,

@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView, View, StyleSheet, TouchableOpacity } from "react-native";
 import Spinner from "react-native-loading-spinner-overlay";
+import Video from 'react-native-video';
 
 //Added:
 import { HomeStackNavigationProps } from "../../../routes/HomeRoutes";
@@ -36,7 +37,16 @@ export const TutorialScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+
+    <Video  
+      source={require('../../../../assets/videos/LunchBudsTutorialV2.mp4')}                  // the video file
+      paused={false}                  // make it start    
+      style={styles.VideoContainer}  // any style you want
+      repeat={true}                   // make it a loop
+    />
+
       <ContinueButton navigation={navigation} />
+
     </SafeAreaView>
   );
 };
@@ -57,7 +67,7 @@ const ContinueButton = ({ navigation }: TutorialContinueButton) => {
     >
       <Image
         source={require("../../../../assets/images/ButtonContinue.png")}
-        style={{ width: 45, height: 35 }}
+        style={{ width: 150, height: 50 }}
       />
     </TouchableOpacity>
   );
@@ -73,7 +83,13 @@ const styles = StyleSheet.create({
   ButtonContainer: {
     // Continue Button
     position: "absolute",
-    bottom: "10%",
+    bottom: "8%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  VideoContainer: {
+    // Video
     justifyContent: "center",
     alignItems: "center",
   },
