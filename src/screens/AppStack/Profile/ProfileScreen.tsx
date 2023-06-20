@@ -37,8 +37,8 @@ export const ProfileScreen = () => {
         </View>
       </View>
 
-      <View style={{ flex: 1, alignItems: "center", marginBottom: 50 }}>
-        <Button style={{ width: "40%" }} onPress={signOut}>
+      <View style={{ flex: 1, alignItems: "center", top: 200 }}>
+        <Button style={{ width: "30%" }} onPress={signOut}>
           <Text>Sign out</Text>
         </Button>
       </View>
@@ -74,6 +74,7 @@ const styles = StyleSheet.create({
   profileIcon: {
     width: 120,
     height: 120,
+    marginTop: 200,
     alignSelf: "center",
     justifyContent: "center",
     marginBottom: 60,
