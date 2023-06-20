@@ -16,6 +16,7 @@ export const NavBarRoutes = () => {
       initialRouteName="Home Routes"
       activeColor="#807550"
       // shifting={true}}
+      
       barStyle={{ backgroundColor: "#E8E5CC" }}
     >
       {/* For the 4 different navigation tabs */}
