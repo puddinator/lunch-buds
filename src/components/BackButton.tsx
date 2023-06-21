@@ -1,30 +1,26 @@
 import { useNavigation } from "@react-navigation/native";
 import { Image } from "native-base";
 import React from "react";
-import { TouchableOpacity, View } from "react-native";
+import { TouchableOpacity, View, ViewStyle } from "react-native";
 
-export const BackButton = () => {
+interface IProps {
+  customStyle?: ViewStyle;
+}
+
+export const BackButton = ({ customStyle }: IProps) => {
   const navigation = useNavigation();
 
   return (
-    // <View style={{ marginTop: 60, marginLeft: 30 }}>
-    //   <TouchableOpacity
-    //     onPress={() => {
-    //       navigation.goBack();
-    //     }}
-    //   >
-    //     <Ionicons name="arrow-back" size={50} />
-    //   </TouchableOpacity>
-    // </View>
-
     <View
-      style={{
-        // flexDirection: "row",
-        // alignItems: "center",
-        // justifyContent: "center",
-        marginTop: 60,
-        marginLeft: 30,
-      }}
+      style={[
+        {
+          position: "absolute",
+          zIndex: 10,
+          marginTop: 60,
+          marginLeft: 30,
+        },
+        customStyle,
+      ]}
     >
       <TouchableOpacity
         onPress={() => {
