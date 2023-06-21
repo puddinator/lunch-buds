@@ -14,7 +14,7 @@ const DATA = [
   },
   {
     id: "bd7acbea-c1b1-46c2-aed5-3ad53abb",
-    name: "Joelle Tan",
+    name: "Alex Tan",
     match: "Data Science",
     otherInterests: "Rock music, Swimming",
     number: "92345678",

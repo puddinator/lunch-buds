@@ -59,6 +59,7 @@ export const ShowMatchesScreen = () => {
           )}
           keyExtractor={(profile) => profile.id}
           ItemSeparatorComponent={() => <View style={{ height: 10 }} />}
+  /*        
           ListFooterComponent={
             <VStack alignItems={"center"} space={2}>
               <Button onPress={() => {}}>Save your match search</Button>
@@ -66,6 +67,7 @@ export const ShowMatchesScreen = () => {
             </VStack>
           }
           ListFooterComponentStyle={{ margin: 10 }}
+  */
         />
 
         <Modal
@@ -113,14 +115,14 @@ export const ShowMatchesScreen = () => {
                   style={{ marginTop: 10 }}
                 >
                   <HStack alignItems={"center"} space={2}>
-                    <Text fontSize={20} paddingBottom={3}>
+                   {/* <Text fontSize={20} paddingBottom={3}>
                       Let's grow!
-                    </Text>
+                    </Text> */}
                     <Image
-                      source={require("../../../../assets/images/NextButton.png")}
+                      source={require("../../../../assets/images/ButtonConnect.png")}
                       style={{
-                        width: 64,
-                        height: 54,
+                        width: 150,
+                        height: 100,
                       }}
                     />
                   </HStack>
