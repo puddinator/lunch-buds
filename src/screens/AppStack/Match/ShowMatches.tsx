@@ -2,21 +2,18 @@ import { useNavigation } from "@react-navigation/native";
 import {
   Button,
   FlatList,
-  FormControl,
   HStack,
-  Input,
+  Image,
   Modal,
   Text,
   VStack,
-  Image,
 } from "native-base";
+import { useState } from "react";
 import { Dimensions, TouchableOpacity, View } from "react-native";
+import { BackButton } from "../../../components/BackButton";
 import { ProfileCard } from "../../../components/ProfileCard";
 import { NewMatchesStackNavigationProps } from "../../../routes/NewMatchesRoutes";
 import { profileData } from "../../../utils/data";
-import { useState } from "react";
-import { BackButton } from "../../../components/BackButton";
-import { SearchButton } from "../../../components/SearchButton";
 
 export const ShowMatchesScreen = () => {
   const navigation = useNavigation<NewMatchesStackNavigationProps>();
@@ -27,6 +24,7 @@ export const ShowMatchesScreen = () => {
 
   return (
     <>
+      <BackButton customStyle={{ marginTop: 3 }} />
       <View
         style={{
           flex: 1,
@@ -61,7 +59,15 @@ export const ShowMatchesScreen = () => {
           )}
           keyExtractor={(profile) => profile.id}
           ItemSeparatorComponent={() => <View style={{ height: 10 }} />}
+          ListFooterComponent={
+            <VStack alignItems={"center"} space={2}>
+              <Button onPress={() => {}}>Save your match search</Button>
+              <Text>Let other's find you!</Text>
+            </VStack>
+          }
+          ListFooterComponentStyle={{ margin: 10 }}
         />
+
         <Modal
           isOpen={modalVisible}
           onClose={() => setModalVisible(false)}

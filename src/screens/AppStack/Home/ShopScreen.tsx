@@ -68,7 +68,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    paddingBottom: 70,
+    marginTop: 40,
+    marginBottom: 20,
   },
 
   appleIcon: {
