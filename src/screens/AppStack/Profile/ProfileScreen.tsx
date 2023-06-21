@@ -30,6 +30,7 @@ export const ProfileScreen = () => {
         style={{
           alignSelf: "flex-start",
           marginLeft: 30,
+          top: 40,
         }}
       >
         <TouchableOpacity

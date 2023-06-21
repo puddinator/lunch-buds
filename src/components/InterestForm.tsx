@@ -9,10 +9,25 @@ export const InterestForm = () => {
       value={groupValues}
       accessibilityLabel="choose interests"
     >
-      <Checkbox value="one" my={2}>
-        UX Research
+      <Checkbox value="one">
+        Reading
       </Checkbox>
-      <Checkbox value="two">Software Development</Checkbox>
+
+      <Checkbox value="two">
+        Sports
+      </Checkbox>
+
+      <Checkbox value="three">
+        Cooking
+      </Checkbox>
+
+      <Checkbox value="four">
+        Arts
+      </Checkbox>
+
+      <Checkbox value="five">
+        Music
+      </Checkbox>
     </Checkbox.Group>
   );
 };
