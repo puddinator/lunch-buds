@@ -60,7 +60,8 @@ const ContinueButton = ({ navigation }: any) => {
       }}
       onPress={() => {
         // navigation.pop(2); // go back 2 screens to home doesn't seem to work
-        navigation.back();
+        // navigation.back();
+        navigation.navigate("Shop");
       }}
     >
       <Image

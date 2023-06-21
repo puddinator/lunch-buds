@@ -9,7 +9,11 @@ import {
 } from "react-native";
 import { AuthContext } from "../../../contexts/AuthContext";
 
+import { useNavigation } from "@react-navigation/native";
+import { ProfileStackNavigationProps } from "../../../routes/ProfileRoutes";
+
 export const EditProfileScreen = () => {
+  const navigation = useNavigation<ProfileStackNavigationProps>()
   const { signOut } = useContext(AuthContext);
 
   const windowWidth = Dimensions.get("window").width;
@@ -63,7 +67,7 @@ export const EditProfileScreen = () => {
       </VStack>
 
       <View style={{ marginBottom: 30 }}>
-        <Button onPress={() => {}}>
+        <Button onPress={() => {navigation.navigate("Profile");}}>
           <Text style={{ fontSize: 20 }}>Update</Text>
         </Button>
       </View>
