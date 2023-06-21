@@ -19,10 +19,10 @@ export const MatchConnectScreen = () => {
           justifyContent: "center",
         }}
       >
-        <VStack>
+        <VStack alignItems="center">
           <Text>Your code: 1234</Text>
-          <Text>Enter LunchBuds's code</Text>
-          <Input></Input>
+          <Text style={{ fontSize: 24 }}>Enter LunchBuds's code:</Text>
+          <Input style={{ width: 150, height: 50, flex:0 }}></Input>
           <TouchableOpacity
             onPress={() => {
               navigation.navigate("Grow Tree");

@@ -16,7 +16,7 @@ export const GrowTreeScreen = () => {
     <>
       <Video
         source={require("../../../../assets/videos/GrowingAnimation.mp4")}
-        style={{ flex: 1 }}
+        style={{ flex: 1, transform: [{ rotate: "90deg" }], width: 580, height: 300, right: 100, top: 35}}
         shouldPlay={true}
         onPlaybackStatusUpdate={(playbackStatus) => {
           // @ts-ignore shld be a mistake in type of component
@@ -74,7 +74,7 @@ const DoneButton = ({ navigation }: any) => {
       style={{
         flex: 1,
         position: "absolute",
-        bottom: "10%",
+        bottom: "1%",
         left: "30%",
       }}
       onPress={() => {
@@ -95,7 +95,7 @@ const PromptButton = ({ navigation, setModalVisible }: any) => {
       style={{
         flex: 1,
         position: "absolute",
-        top: "10%",
+        top: "5%",
         left: "30%",
       }}
       onPress={() => {
@@ -104,7 +104,11 @@ const PromptButton = ({ navigation, setModalVisible }: any) => {
     >
       <Image
         source={require("../../../../assets/images/ButtonPrompt.png")}
-        style={{ width: 150, height: 50 }}
+        style={{ 
+          width: 170, 
+          height: 100, 
+          justifyContent:"center"
+        }}
       />
     </TouchableOpacity>
   );
