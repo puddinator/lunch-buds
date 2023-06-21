@@ -1,18 +1,19 @@
-import { LinearGradient } from "expo-linear-gradient";
-import { Button, Image, Stack, Text } from "native-base";
+import { Text, Image, Button, VStack, HStack, Input } from "native-base";
 import { useContext, useState } from "react";
-import { useNavigation } from "@react-navigation/native";
-import { View, StyleSheet } from "react-native";
-import Spinner from "react-native-loading-spinner-overlay";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import {
-  PasswordInput,
-  UsernameInput,
-} from "../../components/AuthStack/LoginInput";
-import { BackButton } from "../../components/BackButton";
+  View,
+  SafeAreaView,
+  StyleSheet,
+  TouchableOpacity,
+  Dimensions,
+} from "react-native";
 import { AuthContext } from "../../contexts/AuthContext";
+
+import { useNavigation } from "@react-navigation/native";
 import { ISignInProps } from "../../contexts/interfaces/IAuthProvider";
+import { BackButton } from "../../components/BackButton";
 
 const setAsNewProfile = async () => {
   try {
@@ -22,97 +23,101 @@ const setAsNewProfile = async () => {
   }
 };
 
-export const NewProfileScreen = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+export const NewProfileScreen = ({ route }: any) => {
+  const { email, password } = route.params;
 
   const { signUp, isLoading } = useContext(AuthContext);
+  const [name, setName] = useState("");
+  const [number, setNumber] = useState("");
+  const [interests, setInterests] = useState([""]);
 
-  const navigation = useNavigation();
+  // const navigation = useNavigation();
+
+  const windowWidth = Dimensions.get("window").width;
 
   return (
     <>
-      <View
+      <BackButton />
+      <SafeAreaView
         style={{
           flex: 1,
-          alignItems: "center",
           backgroundColor: "#FFFBEC",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
-        <View
-          style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
-        >
-          <Stack space={20} w="100%" maxW="300px" alignItems="center">
-            <Image
-              source={require("../../../assets/images/ProfileIcon.png")}
-              alt="avatar"
-              height={100}
-              width={70}
-              borderColor={"black"}
-              borderWidth={5}
-              paddingX={10}
-            />
-            <Stack space={4} w="75%" maxW="300px" alignItems="center">
-              <View style={styles.row}>
-                <Text style={styles.profileLabel}> Name:</Text>
-                <Text style={styles.profileValue}> Tan Xiao Ming </Text>
-              </View>
+        <VStack flex={1} space={5} justifyContent={"center"}>
+          <Image
+            source={require("../../../assets/images/ProfileIcon.png")}
+            style={{
+              width: 160,
+              height: 160,
+              alignSelf: "center",
+            }}
+          />
 
-              <View style={styles.row}>
-                <Text style={styles.profileLabel}> H/P:</Text>
-                <Text style={styles.profileValue}> 912345678 </Text>
-              </View>
-
-              <View style={styles.row}>
-                <Text style={styles.profileLabel}> Interest:</Text>
-                <Text style={styles.interests}>insert buttons here</Text>
-              </View>
-
-              <Button
-                size="lg"
-                onPress={() => {
-                  setAsNewProfile();
-                  const data = { username, password } as ISignInProps;
-                  signUp(data);
-                }}
-                style={{ marginTop: 15 }}
+          <VStack space={3} width={windowWidth * 0.8}>
+            <HStack alignItems={"center"}>
+              <Text flex={3} style={{ fontSize: 20, textAlign: "right" }}>
+                Name: &nbsp;
+              </Text>
+              <Input
+                flex={4}
+                style={{ fontSize: 20 }}
+                onChangeText={(text) => setName(text)}
               >
-                Sign Up
-              </Button>
-            </Stack>
-          </Stack>
+                Tan Xiao Ming
+              </Input>
+            </HStack>
+            <HStack alignItems={"center"}>
+              <Text flex={3} style={{ fontSize: 20, textAlign: "right" }}>
+                H/P: &nbsp;
+              </Text>
+              <Input
+                flex={4}
+                style={{ fontSize: 20 }}
+                onChangeText={(text) => setNumber(text)}
+              >
+                912345678
+              </Input>
+            </HStack>
+            <HStack>
+              <Text flex={3} style={{ fontSize: 20, textAlign: "right" }}>
+                Interests: &nbsp;
+              </Text>
+              <VStack flex={4} space={2}>
+                <Input
+                  style={{ fontSize: 20 }}
+                  onChangeText={(text) => setInterests([text])}
+                >
+                  Example 1
+                </Input>
+                <Input style={{ fontSize: 20 }}>Example 2</Input>
+              </VStack>
+            </HStack>
+          </VStack>
+        </VStack>
+
+        <View style={{ marginBottom: 30 }}>
+          <Button
+            size="lg"
+            onPress={() => {
+              setAsNewProfile();
+              const profileData = {
+                email,
+                password,
+                name,
+                number,
+                interests,
+              } as ISignInProps;
+              signUp(profileData);
+            }}
+            style={{ marginTop: 15 }}
+          >
+            Sign Up
+          </Button>
         </View>
-      </View>
-
-      <View style={{ position: "absolute" }}>
-        <BackButton />
-      </View>
-
-      <Spinner visible={isLoading} />
+      </SafeAreaView>
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  row: {
-    flexDirection: "row",
-    justifyContent: "center",
-    marginBottom: 10,
-  },
-  profileLabel: {
-    // textAlign: "right",
-    width: "50%",
-    fontSize: 20,
-  },
-  profileValue: {
-    // textAlign: "left",
-    width: "50%",
-    fontSize: 20,
-  },
-  interests: {
-    textAlign: "left",
-    width: "50%",
-    fontSize: 10,
-  },
-});

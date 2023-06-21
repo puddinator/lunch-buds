@@ -7,7 +7,7 @@ import Spinner from "react-native-loading-spinner-overlay";
 
 import {
   PasswordInput,
-  UsernameInput,
+  EmailInput,
 } from "../../components/AuthStack/LoginInput";
 import { BackButton } from "../../components/BackButton";
 import { AuthContext } from "../../contexts/AuthContext";
@@ -17,7 +17,7 @@ import { AuthStackNavigationProps } from "../../routes/AuthRoutes";
 const logo = require("../../../assets/images/LunchBudsLogo.png");
 
 export const SignUpScreen = () => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -40,7 +40,7 @@ export const SignUpScreen = () => {
           <Stack space={20} w="100%" maxW="300px" alignItems="center">
             <Image source={logo} alt="LunchBuds logo" height={100} />
             <Stack space={4} w="75%" maxW="300px" alignItems="center">
-              <UsernameInput setUsername={setUsername} />
+              <EmailInput setEmail={setEmail} />
               <PasswordInput setPassword={setPassword} />
               <PasswordInput
                 setPassword={setConfirmPassword}
@@ -49,7 +49,7 @@ export const SignUpScreen = () => {
               <Button
                 size="lg"
                 onPress={() => {
-                  const data = { username, password } as ISignInProps;
+                  const data = { email: email, password } as ISignInProps;
                   // signUp(data);
                   navigation.navigate("New Profile", data);
                 }}

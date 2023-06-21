@@ -28,7 +28,6 @@ export const LunchBudsNavigationContainer = () => {
           }}
         >
           {isLoggedIn ? (
-            // {false ? (
             <>
               <Stack.Screen name="App" component={NavBarRoutes} />
               <Stack.Screen name="Tutorial" component={TutorialScreen} />

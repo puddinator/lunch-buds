@@ -8,10 +8,7 @@ import Spinner from "react-native-loading-spinner-overlay";
 //Added:
 import { HomeStackNavigationProps } from "../routes/HomeRoutes";
 
-import {
-  PasswordInput,
-  UsernameInput,
-} from "../components/AuthStack/LoginInput";
+import { PasswordInput, EmailInput } from "../components/AuthStack/LoginInput";
 import { BackButton } from "../components/BackButton";
 import { AuthContext } from "../contexts/AuthContext";
 import { ISignInProps } from "../contexts/interfaces/IAuthProvider";

@@ -66,10 +66,10 @@ export const HomeScreen = () => {
               <Text style={{ fontSize: 20 }}>You have watered your</Text>
               <Text style={{ fontSize: 20 }}>trees for today!</Text>
               <Image
-              source={require("../../../../assets/images/WateringCan.png")}
-              style={styles.waterIcon}
-            />
-              <Text style={{ fontSize: 24 }}>      125 Apples collected.</Text>
+                source={require("../../../../assets/images/WateringCan.png")}
+                style={styles.waterIcon}
+              />
+              <Text style={{ fontSize: 24 }}> 125 Apples collected.</Text>
               <Image
                 source={require("../../../../assets/images/Apple.png")}
                 style={styles.modalimage}
@@ -202,19 +202,20 @@ const styles = StyleSheet.create({
   maingarden: {
     width: 300,
     height: 200,
-    marginTop: "50%",
+    marginTop: "35%",
   },
   tree1: {
     width: 100,
     height: 100,
     position: "absolute",
-    top: 450,
+    top: 340,
+    left: 180,
   },
   tree2: {
     width: 80,
     height: 150,
     position: "absolute",
-    top: 370,
+    top: 300,
     left: 85,
   },
 });

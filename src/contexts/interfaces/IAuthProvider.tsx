@@ -11,11 +11,12 @@ export interface IAction {
 }
 
 export interface ISignInProps {
-  username: string;
+  email: string;
   password: string;
 }
 
 export interface ISignUpProps extends ISignInProps {
-  email?: string;
-  image?: string;
+  name: string;
+  number: string;
+  interests: string[];
 }

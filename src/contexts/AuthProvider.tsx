@@ -1,6 +1,7 @@
-import { ReactNode, useEffect, useMemo, useReducer } from "react";
-import { deleteItemAsync, getItemAsync, setItemAsync } from "expo-secure-store";
 import axios from "axios";
+import { deleteItemAsync, getItemAsync, setItemAsync } from "expo-secure-store";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { ReactNode, useEffect, useMemo, useReducer } from "react";
 import Toast from "react-native-toast-message";
 
 import { AuthContext } from "./AuthContext";
@@ -88,68 +89,51 @@ export const AuthProvider = (props: { children: ReactNode }) => {
     () => ({
       signIn: async (data: ISignInProps) => {
         dispatch({ type: "LOADING" });
-        // Send username, password to server and get a token, and handle errors if sign in failed
+        // Send email, password to server and get a token, and handle errors if sign in failed
+        axios
+          .post("https://lunch-buds-backend.vercel.app/api/users/login", data)
+          .then(async (response) => {
+            const authToken = "Test";
+            dispatch({ type: "SIGN_IN", authToken });
 
-        // try {
-
-        // const response = await axios.post(
-        //   "https://fine-plum-turtle-toga.cyclic.app/login",
-        //   data
-        // );
-        // console.log("token", response);
-        // const authToken = response.data.accessToken;
-        const authToken = "Test";
-
-        if (!!authToken) dispatch({ type: "SIGN_IN", authToken });
-        else showToast();
-
-        // Set the token in SecureStore
-        await setItemAsync("authToken", authToken);
-
-        // } catch (error) {
-        //   console.error(error);
-        //   showToast();
-        // }
-
-        dispatch({ type: "LOADED" });
+            // Set the token in SecureStore
+            await setItemAsync("authToken", authToken);
+            console.log(response.data);
+            await AsyncStorage.setItem(
+              "profile",
+              JSON.stringify(response.data.user)
+            );
+            dispatch({ type: "LOADED" });
+          })
+          .catch((error) => {
+            console.error(error);
+            showToast();
+            dispatch({ type: "LOADED" });
+          });
       },
 
-      signUp: async (data: ISignUpProps) => {
+      signUp: (data: ISignUpProps) => {
         dispatch({ type: "LOADING" });
         // Send sign up data to server and get a token, also handle errors if sign up failed
-        // For some reason bob used urlencoded.. hope this works
 
-        // try {
+        axios
+          .post("https://lunch-buds-backend.vercel.app/api/users/signup", data)
+          .then(async (response) => {
+            const authToken = "Test";
+            if (response.data.status === 200)
+              dispatch({ type: "SIGN_IN", authToken });
+            else showToast();
 
-        const formattedData = Object.keys(data)
-          // @ts-ignore
-          .map((key) => `${key}=${encodeURIComponent(data[key])}`)
-          .join("&");
-
-        const options = {
-          method: "POST",
-          headers: { "content-type": "application/x-www-form-urlencoded" },
-          formattedData,
-          url: "https://fine-plum-turtle-toga.cyclic.app/register",
-        };
-
-        // const response = await axios(options);
-        // console.log("token", response);
-        // const authToken = response.data.accessToken;
-        const authToken = "tempToken";
-
-        if (!!authToken) dispatch({ type: "SIGN_IN", authToken });
-        else showToast();
-
-        // Set the token in SecureStore
-        await setItemAsync("authToken", authToken);
-
-        // } catch (error) {
-        //   console.error(error);
-        //   showToast();
-        // }
-
-        dispatch({ type: "LOADED" });
+            console.log(data);
+            // Set the token in SecureStore
+            await setItemAsync("authToken", authToken);
+            dispatch({ type: "LOADED" });
+          })
+          .catch((error) => {
+            console.error(error);
+            showToast();
+            dispatch({ type: "LOADED" });
+          });
       },
 
       signOut: async () => {

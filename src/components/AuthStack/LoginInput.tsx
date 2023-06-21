@@ -5,21 +5,21 @@ import { useState } from "react";
 import { TouchableOpacity } from "react-native";
 import { AuthStackNavigationProps } from "../../routes/AuthRoutes";
 
-export const UsernameInput = (props: {
-  setUsername: React.Dispatch<React.SetStateAction<string>>;
+export const EmailInput = (props: {
+  setEmail: React.Dispatch<React.SetStateAction<string>>;
 }) => {
-  const { setUsername } = props;
+  const { setEmail: setEmail } = props;
 
   return (
     <Input
       size="2xl"
-      placeholder="Username"
+      placeholder="Email"
       placeholderTextColor="grey"
       // bg={"rgba(0, 0, 0, 0.3)"}
       // color="white"
       autoCapitalize="none"
       autoCorrect={false}
-      onChangeText={setUsername}
+      onChangeText={setEmail}
     />
   );
 };
