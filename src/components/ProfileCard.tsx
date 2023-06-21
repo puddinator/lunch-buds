@@ -14,17 +14,17 @@ const DATA = [
   },
   {
     id: "bd7acbea-c1b1-46c2-aed5-3ad53abb",
-    name: "Tommy Tan",
+    name: "Joelle Tan",
     match: "Data Science",
-    otherInterests: "Bouldering, Baking",
-    number: "91234567",
+    otherInterests: "Rock music, Swimming",
+    number: "92345678",
   },
   {
     id: "bd7acbea-c1b1-46c2-aed5-",
-    name: "Tommy Tan",
+    name: "Bryan Tan",
     match: "Data Science",
-    otherInterests: "Bouldering, Baking",
-    number: "91234567",
+    otherInterests: "Reading, Skiing",
+    number: "93456789",
   },
 ];
 

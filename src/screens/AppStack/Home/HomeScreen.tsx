@@ -59,12 +59,21 @@ export const HomeScreen = () => {
         bottom="4"
         size="lg"
       >
-        <Modal.Content backgroundColor={"#FFFBEC"}>
+        <Modal.Content backgroundColor={"#FFFBEC"} width="380px" height="150px">
           <Modal.CloseButton />
           <Modal.Body>
             <VStack alignItems={"center"} space={2}>
-              <Text>You have watered your trees for today!</Text>
-              <Text>125 Apples collected. </Text>
+              <Text style={{ fontSize: 20 }}>You have watered your</Text>
+              <Text style={{ fontSize: 20 }}>trees for today!</Text>
+              <Image
+              source={require("../../../../assets/images/WateringCan.png")}
+              style={styles.waterIcon}
+            />
+              <Text style={{ fontSize: 24 }}>      125 Apples collected.</Text>
+              <Image
+                source={require("../../../../assets/images/Apple.png")}
+                style={styles.modalimage}
+              />
             </VStack>
           </Modal.Body>
         </Modal.Content>
@@ -162,6 +171,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   image: {
+    width: 45,
+    height: 35,
+  },
+  modalimage: {
+    position: "absolute",
+    top: 88,
+    left: 25,
     width: 45,
     height: 35,
   },
