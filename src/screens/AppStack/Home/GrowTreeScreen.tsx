@@ -18,7 +18,12 @@ export const GrowTreeScreen = () => {
         source={require("../../../../assets/videos/GrowingAnimation.mp4")}
         style={{ flex: 1 }}
         shouldPlay={true}
-        onPlaybackStatusUpdate={() => setIsPlaybackComplete(true)}
+        onPlaybackStatusUpdate={(playbackStatus) => {
+          // @ts-ignore shld be a mistake in type of component
+          if (playbackStatus.didJustFinish) {
+            setIsPlaybackComplete(true);
+          }
+        }}
       />
 
       <View

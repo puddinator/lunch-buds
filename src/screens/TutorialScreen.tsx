@@ -43,7 +43,12 @@ export const TutorialScreen = () => {
         source={require("../../assets/videos/LunchBudsTutorialV2.mp4")}
         style={{ flex: 1 }}
         shouldPlay={true}
-        onPlaybackStatusUpdate={() => setIsPlaybackComplete(true)}
+        onPlaybackStatusUpdate={(playbackStatus) => {
+          // @ts-ignore shld be a mistake in type of component
+          if (playbackStatus.didJustFinish) {
+            setIsPlaybackComplete(true);
+          }
+        }}
       />
 
       <View
@@ -54,7 +59,7 @@ export const TutorialScreen = () => {
           width: 10000, // otherwise get actual dimensions from Dimensions
           zIndex: -1,
         }}
-      ></View>
+      />
       {isPlaybackComplete && <ContinueButton navigation={navigation} />}
     </>
   );

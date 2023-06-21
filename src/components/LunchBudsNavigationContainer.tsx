@@ -7,6 +7,7 @@ import { NavBarRoutes } from "../routes/NavBarRoutes";
 import { AuthRoutes } from "../routes/AuthRoutes";
 import { LottieSplash } from "./LottieSplash";
 import { TutorialScreen } from "../screens/TutorialScreen";
+import { BuyTicketResultScreen } from "../screens/BuyTicketResultScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -31,6 +32,10 @@ export const LunchBudsNavigationContainer = () => {
             <>
               <Stack.Screen name="App" component={NavBarRoutes} />
               <Stack.Screen name="Tutorial" component={TutorialScreen} />
+              <Stack.Screen
+                name="Buy Ticket Result"
+                component={BuyTicketResultScreen}
+              />
             </>
           ) : (
             <Stack.Screen name="Auth" component={AuthRoutes} />

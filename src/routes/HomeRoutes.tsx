@@ -6,11 +6,13 @@ import { HomeScreen } from "../screens/AppStack/Home/HomeScreen";
 import { ShopScreen } from "../screens/AppStack/Home/ShopScreen";
 import { TutorialScreen } from "../screens/TutorialScreen";
 import { GrowTreeScreen } from "../screens/AppStack/Home/GrowTreeScreen";
+import { BuyTicketResultScreen } from "../screens/BuyTicketResultScreen";
 
 type HomeStackParamList = {
   Home: undefined;
   Tutorial: undefined; // it's not actl in the stack
   Shop: undefined;
+  "Buy Ticket Result": undefined;
   "Grow Tree": undefined;
   Prompts: undefined;
 };

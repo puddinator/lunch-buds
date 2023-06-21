@@ -3,9 +3,15 @@ import { useContext } from "react";
 import { View, SafeAreaView, StyleSheet, TouchableOpacity } from "react-native";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { BackButton } from "../../../components/BackButton";
+import { useNavigation } from "@react-navigation/native";
+import { HomeStackNavigationProps } from "../../../routes/HomeRoutes";
 
 export const ShopScreen = () => {
-  const { signOut } = useContext(AuthContext);
+  const navigation = useNavigation<HomeStackNavigationProps>();
+
+  const handleBuyTicket = () => {
+    navigation.navigate("Buy Ticket Result");
+  };
 
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
@@ -14,7 +20,6 @@ export const ShopScreen = () => {
       {/* Count of apples -------------------------------------------------------- */}
 
       <View style={styles.appleRow}>
-
         <Image
           source={require("../../../../assets/images/Apple.png")}
           style={styles.appleIcon}
@@ -27,21 +32,21 @@ export const ShopScreen = () => {
 
       {/* Tickets, three different rarities -------------------------------------- */}
       <View style={styles.ticketContainer}>
-        <TouchableOpacity onPress={signOut}>
+        <TouchableOpacity onPress={handleBuyTicket}>
           <Image
             source={require("../../../../assets/images/TicketCommon.png")}
             style={styles.ticketIcon}
           />
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={signOut}>
+        <TouchableOpacity onPress={handleBuyTicket}>
           <Image
             source={require("../../../../assets/images/TicketRare.png")}
             style={styles.ticketIcon}
           />
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={signOut}>
+        <TouchableOpacity onPress={handleBuyTicket}>
           <Image
             source={require("../../../../assets/images/TicketEpic.png")}
             style={styles.ticketIcon}
