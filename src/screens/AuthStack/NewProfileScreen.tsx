@@ -90,9 +90,9 @@ export const NewProfileScreen = ({ route }: any) => {
                   style={{ fontSize: 20 }}
                   onChangeText={(text) => setInterests([text])}
                 >
-                  Example 1
+                  Reading
                 </Input>
-                <Input style={{ fontSize: 20 }}>Example 2</Input>
+                <Input style={{ fontSize: 20 }}>Drawing</Input>
               </VStack>
             </HStack>
           </VStack>

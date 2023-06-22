@@ -73,11 +73,15 @@ export const HomeScreen = () => {
             <VStack alignItems={"center"} space={2}>
               <Text style={{ fontSize: 20 }}>You have watered your</Text>
               <Text style={{ fontSize: 20 }}>trees for today!</Text>
+
               <Image
                 source={require("../../../../assets/images/WateringCan.png")}
                 style={styles.waterIcon}
               />
-              <Text style={{ fontSize: 24 }}> 125 Apples collected.</Text>
+              <Text style={{ fontSize: 24 }}>
+                {" "}
+                &nbsp; &nbsp; 25 Apples collected.
+              </Text>
               <Image
                 source={require("../../../../assets/images/Apple.png")}
                 style={styles.modalimage}
@@ -228,7 +232,7 @@ const styles = StyleSheet.create({
   },
   flower1: {
     width: 20,
-    height: 20,
+    height: 40,
     position: "absolute",
     top: 450,
     left: 180,

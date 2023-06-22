@@ -31,13 +31,13 @@ export const LunchBudsDateTimePicker = (props: IProps) => {
           }}
         >
           {date
-            .toLocaleString("en-SG", { timeZone: "SGT" })
+            .toLocaleString("en-SG", { timeZone: "UTC" })
             // bad hack to remove seconds
             .split(":")
             .slice(0, -1)
             .join(":")
             .concat(
-              date.toLocaleString("en-SG", { timeZone: "SGT" }).slice(-3)
+              date.toLocaleString("en-SG", { timeZone: "UTC" }).slice(-3)
             )}
         </Text>
       </View>

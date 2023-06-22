@@ -18,30 +18,30 @@ export const LunchBudsNavigationContainer = () => {
 
   return (
     <>
-      {/* {isLoadingInitial || !isAnimationFinish ? (
+      {isLoadingInitial || !isAnimationFinish ? (
         <LottieSplash setIsAnimationFinish={setIsAnimationFinish} />
-      ) : ( */}
-      <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{
-            headerShown: false,
-          }}
-        >
-          {isLoggedIn ? (
-            <>
-              <Stack.Screen name="App" component={NavBarRoutes} />
-              <Stack.Screen name="Tutorial" component={TutorialScreen} />
-              <Stack.Screen
-                name="Buy Ticket Result"
-                component={BuyTicketResultScreen}
-              />
-            </>
-          ) : (
-            <Stack.Screen name="Auth" component={AuthRoutes} />
-          )}
-        </Stack.Navigator>
-      </NavigationContainer>
-      {/* )} */}
+      ) : (
+        <NavigationContainer>
+          <Stack.Navigator
+            screenOptions={{
+              headerShown: false,
+            }}
+          >
+            {isLoggedIn ? (
+              <>
+                <Stack.Screen name="App" component={NavBarRoutes} />
+                <Stack.Screen name="Tutorial" component={TutorialScreen} />
+                <Stack.Screen
+                  name="Buy Ticket Result"
+                  component={BuyTicketResultScreen}
+                />
+              </>
+            ) : (
+              <Stack.Screen name="Auth" component={AuthRoutes} />
+            )}
+          </Stack.Navigator>
+        </NavigationContainer>
+      )}
     </>
   );
 };

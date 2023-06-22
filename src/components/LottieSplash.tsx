@@ -1,29 +1,36 @@
 import { useRef, ReactNode, useState } from "react";
 import { View } from "react-native";
 import LottieView from "lottie-react-native";
+import { Video } from "expo-av";
 
 export const LottieSplash = (props: {
   setIsAnimationFinish: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const { setIsAnimationFinish } = props;
 
-  const animation = useRef(null);
-
   return (
-    <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
-      <LottieView
-        autoPlay
-        loop={false}
-        ref={animation}
-        style={{
-          width: 100,
-          height: 100,
-        }}
-        source={require("./../../assets/lottie/splashscreen.json")}
-        onAnimationFinish={() => {
-          setIsAnimationFinish(true);
+    <>
+      <Video
+        source={require("../../assets/videos/LunchBudsLoading.mp4")}
+        style={{ flex: 1 }}
+        shouldPlay={true}
+        onPlaybackStatusUpdate={(playbackStatus) => {
+          // @ts-ignore shld be a mistake in type of component
+          if (playbackStatus.didJustFinish) {
+            setIsAnimationFinish(true);
+          }
         }}
       />
-    </View>
+
+      <View
+        style={{
+          backgroundColor: "#FFFBEC",
+          position: "absolute",
+          height: 10000, // im not sure if this will cause any problems
+          width: 10000, // otherwise get actual dimensions from Dimensions
+          zIndex: -1,
+        }}
+      />
+    </>
   );
 };

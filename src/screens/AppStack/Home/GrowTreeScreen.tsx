@@ -2,7 +2,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 import { Video } from "expo-av";
-import { Image, Modal, Text, VStack, View } from "native-base";
+import { Button, Image, Modal, Text, VStack, View } from "native-base";
 import React, { useEffect, useState } from "react";
 import { Dimensions, TouchableOpacity } from "react-native";
 import Spinner from "react-native-loading-spinner-overlay";
@@ -91,21 +91,24 @@ export const GrowTreeScreen = () => {
         >
           <Modal.Content
             backgroundColor={"#FFFBEC"}
-            height={windowHeight * 0.6}
+            // height={windowHeight * 0.6}
           >
             <Modal.CloseButton />
             <Modal.Header>Conversation Starters</Modal.Header>
             <Modal.Body>
               <VStack alignItems={"center"} space={2}>
-                <Text>{prompts[promptIndex]}</Text>
-                <TouchableOpacity
+                <Text fontSize={20}>{prompts[promptIndex]}</Text>
+
+                <Button
                   onPress={() => {
                     setPromptIndex((current) => (current += 1));
                   }}
                   style={{ marginTop: 10 }}
                 >
-                  <Text>Next</Text>
-                </TouchableOpacity>
+                  <Text fontSize={20} color={"white"}>
+                    Next
+                  </Text>
+                </Button>
               </VStack>
             </Modal.Body>
           </Modal.Content>

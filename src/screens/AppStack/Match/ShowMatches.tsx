@@ -72,11 +72,11 @@ export const ShowMatchesScreen = () => {
           data={profileData}
           showsVerticalScrollIndicator={false}
           renderItem={({ item }) => {
-            if (item.email !== myProfile.email) {
+            if (item?.email !== myProfile?.email) {
               return (
                 <ProfileCard
                   name={item.name}
-                  match={myProfile.interests
+                  match={myProfile?.interests
                     .filter((value: string) => item.interests.includes(value))
                     .join(", ")}
                   otherInterests={item.interests.join(", ")}

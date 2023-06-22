@@ -117,12 +117,10 @@ export const AuthProvider = (props: { children: ReactNode }) => {
         // Send sign up data to server and get a token, also handle errors if sign up failed
 
         axios
-          .post("https://lunch-buds-backend.vercel.app/api/users/signup", data)
+          .post("http://localhost:5001/api/users/signup", data)
           .then(async (response) => {
             const authToken = "Test";
-            if (response.data.status === 200)
-              dispatch({ type: "SIGN_IN", authToken });
-            else showToast();
+            dispatch({ type: "SIGN_IN", authToken });
 
             console.log(data);
             // Set the token in SecureStore
