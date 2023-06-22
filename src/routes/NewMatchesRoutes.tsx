@@ -9,7 +9,7 @@ import { ShowMatchesScreen } from "../screens/AppStack/Match/ShowMatches";
 type NewMatchesStackParamList = {
   "Find Matches": undefined;
   "Show Matches": undefined;
-  "Match Connect": undefined;
+  "Match Connect": any;
   "Grow Tree": undefined; // not actl in stack
 };
 

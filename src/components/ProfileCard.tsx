@@ -35,7 +35,11 @@ export const ProfileCard = ({
       <VStack space={4}>
         <HStack space={4}>
           <Image
-            source={require("../../assets/images/ProfileIcon.png")}
+            source={
+              Math.floor(Math.random() * 2) == 0
+                ? require("../../assets/images/ProfileIcon.png")
+                : require("../../assets/images/Female.png")
+            }
             alt="avatar"
             height={50}
             width={30}

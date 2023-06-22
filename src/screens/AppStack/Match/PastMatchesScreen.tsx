@@ -13,12 +13,12 @@ import { Dimensions, TouchableOpacity, View } from "react-native";
 import { BackButton } from "../../../components/BackButton";
 import { ProfileCard } from "../../../components/ProfileCard";
 import { NewMatchesStackNavigationProps } from "../../../routes/NewMatchesRoutes";
-import { profileData } from "../../../utils/data";
+import { profileDatas } from "../../../utils/data";
 
 export const PastMatchesScreen = () => {
   const navigation = useNavigation<NewMatchesStackNavigationProps>();
   const [modalVisible, setModalVisible] = useState(false);
-  const [selectedProfile, setSelectedProfile] = useState(profileData[0]);
+  const [selectedProfile, setSelectedProfile] = useState(profileDatas[0]);
 
   const windowHeight = Dimensions.get("window").height;
 
@@ -42,13 +42,13 @@ export const PastMatchesScreen = () => {
           Past Matches
         </Text>
         <FlatList
-          data={profileData}
+          data={profileDatas}
           showsVerticalScrollIndicator={false}
           renderItem={({ item }) => (
             <ProfileCard
               name={item.name}
               match={item.match}
-              otherInterests={item.otherInterests}
+              otherInterests={item.interests.join(", ")}
               number={item.number}
               handlePress={() => {
                 setSelectedProfile(item);

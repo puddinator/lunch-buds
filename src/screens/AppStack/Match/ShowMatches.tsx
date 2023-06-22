@@ -8,19 +8,45 @@ import {
   Text,
   VStack,
 } from "native-base";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Dimensions, TouchableOpacity, View } from "react-native";
+import Spinner from "react-native-loading-spinner-overlay";
+
 import { BackButton } from "../../../components/BackButton";
 import { ProfileCard } from "../../../components/ProfileCard";
 import { NewMatchesStackNavigationProps } from "../../../routes/NewMatchesRoutes";
-import { profileData } from "../../../utils/data";
+import { useQuery } from "react-query";
+import { profileDatas } from "../../../utils/data";
+import axios from "axios";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const ShowMatchesScreen = () => {
   const navigation = useNavigation<NewMatchesStackNavigationProps>();
   const [modalVisible, setModalVisible] = useState(false);
-  const [selectedProfile, setSelectedProfile] = useState(profileData[0]);
+  const [selectedProfile, setSelectedProfile] = useState(profileDatas[0]);
+  const [myProfile, setMyProfile] = useState<any>();
 
   const windowHeight = Dimensions.get("window").height;
+
+  const { isLoading, data: responseData } = useQuery(
+    "openToMatchProfiles",
+    async () => {
+      return await axios.get(
+        "https://lunch-buds-backend.vercel.app/api/users/"
+      );
+    }
+  );
+
+  useEffect(() => {
+    (async () => {
+      // @ts-ignore
+      setMyProfile(JSON.parse(await AsyncStorage.getItem("profile")));
+    })();
+  }, []);
+
+  const profileData = responseData?.data.users as typeof profileDatas;
+  console.log(profileData);
+  console.log(myProfile);
 
   return (
     <>
@@ -45,18 +71,24 @@ export const ShowMatchesScreen = () => {
         <FlatList
           data={profileData}
           showsVerticalScrollIndicator={false}
-          renderItem={({ item }) => (
-            <ProfileCard
-              name={item.name}
-              match={item.match}
-              otherInterests={item.otherInterests}
-              number={item.number}
-              handlePress={() => {
-                setSelectedProfile(item);
-                setModalVisible(true);
-              }}
-            />
-          )}
+          renderItem={({ item }) => {
+            if (item.email !== myProfile.email) {
+              return (
+                <ProfileCard
+                  name={item.name}
+                  match={myProfile.interests
+                    .filter((value: string) => item.interests.includes(value))
+                    .join(", ")}
+                  otherInterests={item.interests.join(", ")}
+                  number={item.number}
+                  handlePress={() => {
+                    setSelectedProfile(item);
+                    setModalVisible(true);
+                  }}
+                />
+              );
+            } else return null;
+          }}
           keyExtractor={(profile) => profile.id}
           ItemSeparatorComponent={() => <View style={{ height: 10 }} />}
           ListFooterComponent={
@@ -84,7 +116,11 @@ export const ShowMatchesScreen = () => {
             <Modal.Body>
               <VStack alignItems={"center"} space={2}>
                 <Image
-                  source={require("../../../../assets/images/ProfileIcon.png")}
+                  source={
+                    Math.floor(Math.random() * 2) == 0
+                      ? require("../../../../assets/images/ProfileIcon.png")
+                      : require("../../../../assets/images/Female.png")
+                  }
                   alt="avatar"
                   height={56}
                   width={32}
@@ -108,7 +144,10 @@ export const ShowMatchesScreen = () => {
                 <TouchableOpacity
                   onPress={() => {
                     setModalVisible(false);
-                    navigation.navigate("Match Connect");
+                    navigation.navigate("Match Connect", {
+                      myProfile,
+                      selectedProfile,
+                    });
                   }}
                   style={{ marginTop: 10 }}
                 >
@@ -130,6 +169,8 @@ export const ShowMatchesScreen = () => {
           </Modal.Content>
         </Modal>
       </View>
+
+      <Spinner visible={isLoading} />
     </>
   );
 };

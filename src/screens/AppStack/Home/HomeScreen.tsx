@@ -47,6 +47,14 @@ export const HomeScreen = () => {
         source={require("../../../../assets/images/TreeRed.png")}
         style={styles.tree2}
       />
+      <Image
+        source={require("../../../../assets/images/Flower1.png")}
+        style={styles.flower1}
+      />
+      <Image
+        source={require("../../../../assets/images/Flower2.png")}
+        style={styles.flower2}
+      />
       <ShopButton navigation={navigation} />
       <WaterButton setModalVisible={setModalVisible} />
       <TutorialButton navigation={navigation} />
@@ -217,5 +225,19 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 300,
     left: 85,
+  },
+  flower1: {
+    width: 20,
+    height: 20,
+    position: "absolute",
+    top: 450,
+    left: 180,
+  },
+  flower2: {
+    width: 20,
+    height: 20,
+    position: "absolute",
+    top: 450,
+    left: 250,
   },
 });
